@@ -1,0 +1,38 @@
+<navbar></navbar>
+<div class="row container-fluid p-0 m-0 " [ngClass]="{'bg_black':!bgcolor()}" >
+  <app-nav-aside class="col-3 p-0 m-0  "></app-nav-aside>
+  <div class="col-9">
+<div class="  mx-auto mt-3 bgtable" >
+  <router-outlet>
+    <table class="table table-hover">
+        <thead>
+            <tr class="htable">
+                <th scope="col">Name</th>
+                <!-- <th>Age</th> -->
+                <th scope="col">Email</th>
+                <th scope="col">Blood Type</th>
+                <!-- <th>Phone</th> -->
+                <th scope="col">Choose Option</th>
+
+            </tr>
+    </thead>
+  <tbody class="table table-hover">
+      <tr *ngFor=" let u of users">
+        <td>{{u.firstName}}</td>
+        <!-- <td>{{u.age}}</td> -->
+        <td>{{u.email}}</td>
+        <td>{{u.bloodType}}</td>
+          <td>
+            <button class="btn btn-primary" 
+             (click)="sendobj(u.email)" >
+          Details
+          </button>
+        </td>
+      </tr>
+
+    </tbody>
+    </table>
+  </router-outlet>
+</div>
+</div>
+</div>

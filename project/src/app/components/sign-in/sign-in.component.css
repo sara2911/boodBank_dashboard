@@ -1,0 +1,26 @@
+.bgImg{
+    background-image: url('../../../assets/images/bg5.jpg');
+    background-size: 100% 100%;
+    min-height:100vh;
+    display: flex;
+  
+  
+  }
+  .login{
+    background-color:rgba(214, 213, 213,.5);
+    box-shadow:  7px 10px 5px rgb(151, 148, 148);
+    color:black;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+  .btns{
+    display: flex;
+    justify-content:flex-start;
+  }
+  .valid{
+    border: 1px solid red;
+  }
+  input{
+    border-radius: 10px;
+  }

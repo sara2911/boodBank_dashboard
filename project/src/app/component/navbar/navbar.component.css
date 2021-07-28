@@ -1,0 +1,85 @@
+*:root{
+  overflow: hidden;
+}
+.navbg{
+  background-color: rgb(237,103,97);
+  margin: 0;
+  padding: 0;
+}
+a{
+  color:white;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 20px;
+}
+a:hover{
+  font-size: 30px;
+}
+.active{
+  color: red;
+  font-size: 20px;
+}
+/* .nav-item{
+  margin: 10px
+} */
+nav
+{
+  box-shadow: 0px 5px 7px rgb(204, 204, 204) ;
+}
+.logo{
+  width: 100px;
+ height: 50px;
+ padding: 0;
+  border-radius: 50%;
+  background-image: url('../../../assets/images/logo.jpg');
+  background-size: 100% 100%;
+}
+.moon{
+  font-size: 30px;
+  color: black;
+  margin-right: 10px;
+}
+
+
+.logout{
+  font-size: 20px;
+  color: white;
+  margin-right: 10px;
+}
+.notNum{
+  margin-top: 0;
+  border-radius: 50%;
+float: right;
+/* margin-left:px; */
+}
+.notIcon{
+  font-size:25px;
+}
+button {
+border:none ;
+background-color:transparent;
+margin-right: 10px;
+color: white;
+font-size: 20px;
+}
+.sun{
+  font-size: 25px;
+  color: white;
+}
+.btn{
+  background-color: transparent;
+}
+.dropdown a, i{
+  color: black;
+}
+.span_admin{
+  font-size:25px;
+  display: inline-block;
+  background-color:rgb(7, 190, 251);
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 0;
+
+  border-radius: 50%;
+}

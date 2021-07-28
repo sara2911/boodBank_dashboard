@@ -1,0 +1,22 @@
+.bgImg{
+    background-image: url('../../../assets/images/bg5.jpg');
+    background-size: 100% 100%;
+    height: 100vh;
+    position: relative;
+  /* height: 100%; */
+  
+  }
+  .signup{
+    background-color:rgba(214, 213, 213,.5);
+    box-shadow:  7px 10px 5px rgb(151, 148, 148);
+    color:black;
+    font-weight: bold;
+    /* margin: auto; */
+    border-radius: 10px;
+    border: red;
+  font-size: 20px;
+  }
+  .valid{
+    border: 1px solid red;
+  }
+  

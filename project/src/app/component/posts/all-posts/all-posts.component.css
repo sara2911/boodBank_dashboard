@@ -1,0 +1,45 @@
+
+.contain{
+    min-height:100vh;
+    background-color:rgb(255, 229, 229);
+}
+/* app-nav-aside{
+    /* height:inherit; 
+} */
+.cardimg{
+    width: 100px;;
+    height:150px;
+}
+h6 span{
+    font-size: 15px;
+
+    color:black
+}
+h6{
+    color: blue;
+    font-size: 20px !important;
+}
+.ulpagination{
+    padding: 10px;
+    display: flex ;
+    justify-content: space-evenly;
+    border-radius:40px;
+    width:80%;
+background-color: transparent;
+    box-shadow: 10px 7px 5 rgb(94, 92, 92);
+}
+.ulpagination button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    background-color: white;
+    color: blue;
+    border:0 ;
+
+}
+.btnblue{
+    border: tomato !important;
+    border-radius: 50% solid white !important;
+    background-color: blue !important;
+    color :white !important;
+}

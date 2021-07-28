@@ -1,0 +1,47 @@
+
+      <!-- <div class="formGroup">
+        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+      </div> -->
+
+      
+      <!-- Continue with Google -->
+      <!-- <div class="formGroup">
+        <!-- <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()"> -->
+          <!-- <i class="fab fa-google-plus-g"></i>
+          Continue with Google
+        </button> -->
+      <!-- </div>  -->
+
+    <!-- <div class="redirectToLogin">
+      <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+    </div> -->
+ 
+<!-- ///////////////////////////////// -->
+
+<div class="container-fluid bgImg p-5 m-0">
+  <div>
+  <div class="signup w-50 mx-auto p-3">
+    <form [formGroup]="ourValidation" class="mx-auto  w-75 my-5 mx-auto"  >
+      <div class="form-group">
+        <label for="name">your name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name"
+        formControlName="name" #inputname  [ngClass]="{'valid':!NameValid}">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" formControlName="email" class="form-control" #inputmail [ngClass]="{'valid':!EmailValid}"
+        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-danger ">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" formControlName="pass" class="form-control" id="exampleInputPassword1"
+          placeholder="Password" #pass [ngClass]="{'valid':!passValid}">
+      </div>
+
+
+      <input type="submit" #submit (click)="authService.SignUp(inputmail.value, pass.value)">
+    </form>
+  </div>
+</div>
+

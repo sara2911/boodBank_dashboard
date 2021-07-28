@@ -1,0 +1,10 @@
+.bg_black{
+  background-color:black !important;
+  box-shadow: 5px 10px 5px white;
+  /* color: white !important; */
+}
+.bg_white{
+  background-color:white ;
+  box-shadow: 5px 10px 5px black;
+/* color: black; */
+}

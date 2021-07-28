@@ -1,0 +1,49 @@
+<!-- <div class="container-fluid  bg-img m-0 p-0 "> -->
+  <navbar></navbar>
+  <div class="container-fluid row m-0 p-0 bg-img cover">
+<app-nav-aside class="col-3 p-0 "></app-nav-aside>
+<div class=" col-8 ">
+  <h4 class=" text-center w-75 mx-auto  my-5"> users have same type blood
+    <span class="text-primary pt-3">{{type}}</span>
+  </h4 >
+  <table  class="table table-hover">
+    
+    <thead>
+    <tr>
+      <th>Frist name</th>
+      <th>Second name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>phone</th>
+      <!-- <th> options</th> -->
+
+    </tr>
+  </thead>
+    <tbody>
+<tr *ngFor=" let  v of values">
+<td>{{v.firstName}}</td>
+<td>{{v.secondName}}</td>
+<td>{{v.age}}</td>
+<td>{{v.email}}</td>
+<td>{{v.phone}}</td>
+
+</tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<!-- </div> -->
+<!-- age: 
+26
+blood_type: 
+"B+"
+email: 
+"mik@gmail.com"
+firstName: 
+"mike"
+phone: 
+12345678912
+secondName: 
+"nnn"
+user_imgURL: 
+"https://firebasestorage.googleapis.com/v0/b/blo..." -->

@@ -1,0 +1,53 @@
+
+  <div class=" container-fluid row m-0 p-0 contain" [ngClass]="{'bg_black':!getmood()}">
+    <navbar class="container-fluid col-12  p-0 m-0"></navbar>
+    <app-nav-aside class=" col-3  mr-2 p-0 "></app-nav-aside>
+  <div class=" containpost col-6 p-2 mt-2 p-0" >
+    <div *ngFor="let p of posts">
+      <div class="card  p-1 my-1">
+          <div class="row p-0 m-0">
+        <div class="card-body col-8 mr-auto">
+          <h6 class="card-title">I need </h6>
+          <h6>
+            <span>blood_type :</span>
+            {{p.blood_type}}</h6>
+          <h6>
+            <span>City :</span>
+            {{p.city}}</h6>
+          <h6>
+            <span>donatin Date :</span>
+            {{p.donDate}}</h6>
+
+        </div>
+        <img class="cardimg col-3 p-0 m-0 " src={{p.user_imgURL}} alt="Card image cap"/>
+        <button class="btn btn-info "> info user</button>
+         <!--{{p.userID}}  -->
+        <button class="btn btn-info " (click)="deletpost(p.userID)">delete post</button>
+      </div>
+    </div>
+  </div>
+
+  <ul class="pagination  ulpagination row">
+    <button class="btn_pre" (click)="btn_prev()" [disabled]="disable_pre">prev</button>
+
+    <button (click)="select_Page(1)"  
+      [ngClass]="{'btnblue':btn1.value==this.active_page}"
+
+          value="1" #btn1>1</button>  
+
+    <button (click)="select_Page(2)"
+          value="2" #btn2  [ngClass]="{'btnblue':btn2.value==this.active_page}">
+      2</button> 
+
+    <button (click)="select_Page(3)" value="3" #btn3 [ngClass]="{'btnblue':btn3.value==this.active_page}">
+      3</button>
+    <button value="4" (click)="select_Page(4 )"  #btn4 [ngClass]="{'btnblue':btn4.value==this.active_page}">4</button>
+    <button value="5" (click)="select_Page(5 )" #btn5 [ngClass]="{'btnblue':btn5.value==this.active_page}">5</button>
+    <button class="btn_next" (click)="next_btn()" [disabled]="disable_next">next</button>
+
+  </ul>
+</div>
+</div>
+
+
+  

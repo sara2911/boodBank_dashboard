@@ -1,0 +1,24 @@
+<navbar class="row p-0 m-0 sticky-top navtop" ></navbar>
+<div class="row container-fluid contain p-0 " [ngClass]="{'bg_black':!getmood()}">
+ 
+    <app-nav-aside class="col-3 p-0 mx-1  navleft"></app-nav-aside>
+<div class="row  col-8  mx-auto mt-5 cards"  >
+
+    <div class="col-md-4  col-6 divCard mt-3 "
+     *ngFor=" let b of blood">
+      <a routerLink='/Users/{{b}}'>
+       
+        <div class=" BloodType row p-0 ">
+          <div class="over">
+            <h5 class="text-center  mt-5 pl-5 ">click to info</h5>
+          </div> 
+          <div class="bloodimg col-4">
+            <h4 class="text-center mt-1">{{b}}</h4>
+          </div>
+         
+          <span class="col-12 pl-2 supscrip  ">subscribe</span><span class=" spanText mx-2">{{arr[b]}}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  </div>

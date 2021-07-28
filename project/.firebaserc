@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bloodbank-4d6ac": {
+      "hosting": {
+        "project": [
+          "bloodbank-4d6ac"
+        ]
+      }
+    }
+  }
+}
