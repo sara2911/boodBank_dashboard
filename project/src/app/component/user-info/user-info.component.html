@@ -1,0 +1,67 @@
+<p>user-info works!</p>
+<!-- <div class="container-fluid  bg-img m-0 p-0 "> -->
+    <navbar></navbar>
+    <div class="container-fluid row m-0 p-0 bg-img cover">
+  <app-nav-aside class="col-3 p-0 "></app-nav-aside>
+  <div class="col-3 p-3">
+      <img src={{userinfo.user_imgURL}}>
+      <div></div>
+     <h6>{{userinfo.firstName}}</h6>
+     <h6>{{userinfo.secondName}}</h6> 
+    <h6>{{userinfo.blood_type}}</h6>
+    <h6>{{userinfo.email}}</h6>
+    <h6>{{userinfo.phone}}</h6> 
+    <!-- <h6>{{userinfo.phone}}</h6>  -->
+
+  </div>
+  <div class=" col-6 mx-auto">
+  
+     <div *ngFor="let p of posts"> -->
+         <div class="_card mt-2 ">
+            <div class="row p-0 m-0">
+              <div class="col-12 top_card p-0 m-0 ">
+              <img class="cardimg " src={{p.user_imgURL}} alt="Card image cap"/>
+            
+            <span>{{p.posh6ate.split(' ')[0] }} </span>
+            </div>
+  
+          <div class="card-body p-0 pl-4">
+            <h6 class="card-title">I need help</h6>
+            <h6>
+              <span>blood_type :</span>
+              {{p.blood_type}}</h6>
+            
+              <h6><span>Government :</span>{{p.government}}</h6>
+             <h6> <span>City :</span>
+              {{p.city}}</h6>
+            <h6>
+              <span>donatin Date :</span>
+              {{p.donDate}}</h6>
+              
+              <div class=" p-0 pb-2 divbtn row">
+                 <!--{{p.userID}}  -->
+              </div> 
+              
+          </div>
+          
+        <!-- </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- age: 
+  26
+  blood_type: 
+  "B+"
+  email: 
+  "mik@gmail.com"
+  firstName: 
+  "mike"
+  phone: 
+  12345678912
+  secondName: 
+  "nnn"
+  user_imgURL: 
+  "https://firebasestorage.googleapis.com/v0/b/blo..." -->
+  

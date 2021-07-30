@@ -1,3 +1,6 @@
+:root{--color1:#ed6761;
+--colorbg:rgb(255, 229, 229);
+}
 .bg_black{
   background-color:black !important;
   box-shadow: 5px 10px 5px white;

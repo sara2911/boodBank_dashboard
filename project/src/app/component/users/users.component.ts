@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UsersComponent implements OnInit {
 users:any[]=[];
 objuser:any;
+countuser:any=0;
 @Output() outEvent=new EventEmitter(); 
   constructor(
     private ourService:ServicesService,
@@ -21,6 +22,7 @@ objuser:any;
   ngOnInit(): void {
     this.ourService.getAllUser().once('value', (snapshot) => {
             snapshot.forEach((childSnapshot) => {
+              this.countuser+=1
               // var childKey = childSnapshot.key;
               // this.postKey.push(childKey)
               var childData=childSnapshot.val()
@@ -29,20 +31,11 @@ objuser:any;
         
       })
 
-    // @Output() const objEmitter= new EventEmitter();
 
 
   }
 
-  // .once('value', (snapshot) => {
-    //       snapshot.forEach((childSnapshot) => {
-    //         // var childKey = childSnapshot.key;
-    //         // this.postKey.push(childKey)
-    //         var childData=childSnapshot.val()
-    //         this.values.push(childData)
-    //   })
-      
-    // })
+ 
 
   bgcolor(){
     return this.ourService.mood

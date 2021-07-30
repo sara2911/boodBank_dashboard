@@ -1,3 +1,4 @@
+import { snapshotChanges } from '@angular/fire/database';
 import { ServicesService } from './../../../services.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -43,7 +44,6 @@ console.log(this.posts);
 
   
 select_Page(_page: any) {
-
     this.page=_page-1
     this.active_page=_page;
     this.checkbtn()
@@ -53,28 +53,20 @@ select_Page(_page: any) {
       console.log(this.arrPage[this.page])
     this.serve.getAllPosts()
     .orderByKey().startAt(this.lastkey).limitToFirst(2)
-    .once('value', (snapshot) => {
-      
+    .once('value', (snapshot) => { 
         //reset values
         this.lastkey='' 
         this.postsInpage=[]
     snapshot.forEach((childSnapshot) => {
     console.log(this.lastkey,"start")
-
- 
-
-
     var childData=childSnapshot.val() //get value
       this.lastkey=childSnapshot.key;//get key
     this.postsInpage.push(childData)
     console.log(this.lastkey, "after")
 })
 this.pushposts(this.postsInpage,this.page)
-
-
 })
  this.posts=this.arrPage[_page] //at the end final result [posts] is specfic  by pages
-
 }  
 
     this.posts=this.arrPage[this.page] //at the end final result [posts] is specfic  by pages
@@ -82,9 +74,6 @@ this.pushposts(this.postsInpage,this.page)
       // console.log( this.posts)
 
   }
-
-
-
 
  pushposts(_postsInpage:any,_page:any){
 this.posts=[];
@@ -95,9 +84,6 @@ this.posts=[];
   console.log(_page,"",this.arrPage[1])
   this.posts=this.arrPage[_page]
   }
-
-
-
 
   next_btn(){
     this.active_page+=1;
@@ -137,16 +123,44 @@ checkbtn(){
 }
 }
 
-deletpost(user_id:any){
-console.log(user_id)
- let v=this.serve.getAllPosts().orderByChild('userID').equalTo(user_id).once('value',(snap)=>{
-  snap.forEach((childsnap)=>{
-    
-    this.postofUserid.push(childsnap.val());
 
-  })
-  console.log(this.postofUserid)
+deletpost(id:any){
+
+
+// this.serve.getAllAdmin().orderByChild('uid').equalTo('xTftpUCeYyZQCq9C4oaSsevGLFW2')
+// .once('value',(snap)=>{
+//   snap
+//   .forEach((childsnap)=>{
+//     this.keeee=childsnap.key
+//     console.log(this.keeee)
+//   console.log(childsnap.val())
+// })
+// })
+// this.serve.AddAdmin().remove('TOH5v3usOVYoKB4f3UmBPU1uEjt1')
+// console.log(this.serve.AddAdmin().subscribe()
+
+
+// this.serve.getpostbykey().equalTo(id)
+this.serve.getpostbykey().equalTo(id).once('value',(snap)=>{
+  snap
+  .forEach((childsnap)=>{
+    this._keydelete=childsnap.key
+    console.log(this._keydelete)
+  console.log(childsnap.val())
 })
- console.log(v);
+
+}).then(()=>{
+  console.log(this._keydelete)
+
+this.serve.getAllPosts().child(this._keydelete).remove()
+})
 }
+_keydelete:any;
+
+
+
 }
+
+
+
+

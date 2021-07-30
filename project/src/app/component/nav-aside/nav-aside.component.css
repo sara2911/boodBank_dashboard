@@ -6,11 +6,11 @@ aside{
   background-color: white;
   /* color: gray; */
   margin-right: 0;
-  min-height:90vh;
+  min-height:100vh;
   box-shadow: 5px 10px 5px rgb(128, 128, 128,.7);
   box-sizing: border-box;
   overflow: hidden;
- ;
+ /* height:inherit; */
   margin: 0;
 }
 .logo{
@@ -21,14 +21,14 @@ aside{
 
 }
 .logotext{
-  font-size: 22px;
-  /* color: red; */
-  /* color: gray; */
-  color:black;
-   /* margin-left: 5px; */
-   font-weight:bolder;
-   margin-top: 15px;
-padding-left: 10px;
+  font-size:40px;
+  color: red;
+display: inline-block;
+margin: auto;
+   /* margin-top: 15px;
+padding-left: 10px; */
+font-family: 'Courgette', cursive;
+font-family: 'Style Script', cursive;
 }
 hr{
   width:80%;
@@ -50,22 +50,24 @@ li{
   text-align:left;
   display: flex;
   justify-content:space-evenly;
+  color: rgb(114, 111, 111);
+
 }
 i{
   padding-right:20px;
 }
-li:hover{
-  background-color:rgb(255, 0, 0,.7);
+li:hover {
+  /* background-color:rgb(255, 0, 0,.7); */
+  background-color:var(--color1);
   font-size:30px;
-  color: white !important;
+  color:white!important;
+
 }
 a{
   text-decoration: none;
-  /* color: rgb(153, 138, 138); */
   width:100%;
-  /* color: black; */
-  font-weight:25px;
   color: rgb(114, 111, 111);
+  font-weight:25px;
   padding: 0;
 
 }
@@ -116,7 +118,7 @@ width: fit-content;
   border-radius: 20px;
   /* display:none; */
   transition: 2s 0s all ease-in-out;
-  float: left;
+  /* float: left; */
   padding: 0;
   margin: 0;
   border: 0;

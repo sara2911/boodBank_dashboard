@@ -1,11 +1,28 @@
 .navaside{
   height:100vh;
 }
+._card{
+  width:90%;
+  height:120px;
+  border-radius:5px;
+  border-top-left-radius:30%;
+  background-color:var(--color1);
+  /* border-bottom-right-radius:5%; */
+box-sizing: border-box;
+  padding: 10px;
+  overflow: hidden;
+  align-items: center;
+}
+._card h6{
+  color:white;
+}
 .bgtable{
-  background-color:orange;
+  /* background-color:orange; */
   background-image: linear-gradient(to right,orange , yellow);
   margin: 0;
-  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 .htable{
   background-color: black;

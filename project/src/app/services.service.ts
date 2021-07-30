@@ -10,7 +10,7 @@ export class ServicesService {
   constructor(public db:AngularFireDatabase) {
   }
 getAllAdmin(){
-   return this.db.list('/Admin').valueChanges()
+   return this.db.database.ref('/Admin')
 }
 AddAdmin(){
   return this.db.list('/Admin')
@@ -35,8 +35,8 @@ getUsersSametype(){
 }
 
 
-deletePosts(){
-  return this.db.database.ref('/Posts')
+getpostbykey(){
+  return this.db.database.ref('/Posts').orderByChild('key')
 }
 
 }

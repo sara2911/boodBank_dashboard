@@ -2,7 +2,7 @@
   overflow: hidden;
 }
 .navbg{
-  background-color: rgb(237,103,97);
+  background-color: #ed6761;
   margin: 0;
   padding: 0;
 }
@@ -27,10 +27,10 @@ nav
   box-shadow: 0px 5px 7px rgb(204, 204, 204) ;
 }
 .logo{
-  width: 100px;
- height: 50px;
+  width:100px;
+ height:50px;
  padding: 0;
-  border-radius: 50%;
+  border-radius:50%;
   background-image: url('../../../assets/images/logo.jpg');
   background-size: 100% 100%;
 }

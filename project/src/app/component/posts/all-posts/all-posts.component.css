@@ -1,14 +1,35 @@
+.asidleft{
+    height:100%;
+    width: 100%;
 
+/* position:fixed; */
+
+}
 .contain{
+    position:absolute;
     min-height:100vh;
     background-color:rgb(255, 229, 229);
+/* background-image: url('../../../../assets/images/bg5.jpg'); */
+background-size: 100% 100%;
 }
-/* app-nav-aside{
-    /* height:inherit; 
-} */
+/* .containpost, */
+ ._card{
+     background-color: white;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    /* margin: auto; */
+    box-shadow: 7px 10px 5px rgb(128, 128, 128,.7);
+
+
+
+}
 .cardimg{
-    width: 100px;;
-    height:150px;
+    width: 60px;
+    height:60px;
+    border-radius:50%;
+    margin: 10px;
+    margin-right: 20px;
+
 }
 h6 span{
     font-size: 15px;
@@ -16,7 +37,7 @@ h6 span{
     color:black
 }
 h6{
-    color: blue;
+    /* color: blue; */
     font-size: 20px !important;
 }
 .ulpagination{
@@ -42,4 +63,19 @@ background-color: transparent;
     border-radius: 50% solid white !important;
     background-color: blue !important;
     color :white !important;
+}
+.divbtn{
+    /* border:1px solid gray; */
+    display: flex;
+    /* justify-content:flex-end; */
+    /* align-items: center; */
+}
+.divbtn button{
+    border-radius: 20px;
+        border:1px solid white;
+        font-size: 20px;
+        background-color:var(--color1);
+color: white;
+
+
 }

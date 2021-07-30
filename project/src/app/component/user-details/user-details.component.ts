@@ -1,4 +1,4 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServicesService } from 'src/app/services.service';
 @Component({
@@ -17,25 +17,19 @@ values:any[]=[];
   }
 
   ngOnInit(): void {
-    this.ourserve.getAllUser().orderByChild('blood_type').equalTo(this.type).once('value',
+    
+        this.ourserve.getAllUser().orderByChild('blood_type').equalTo(this.type).once('value',
     (snapshot)=>{
             snapshot.forEach((childSnapshot) => {
        let v= childSnapshot.val()
              this.values.push(v)
-// console.log("hhhhhhhh")
       console.log(this.values)
     })
   })
+    //  window.location.reload();
+
 }
     
-//     .once('value', (snapshot) => {
-//       snapshot.forEach((childSnapshot) => {
-//         // var childKey = childSnapshot.key;
-//         // this.postKey.push(childKey)
-//         var childData=childSnapshot.val()
-//         this.values.push(childData)
-//   })
-  
-// })
+
   }
 

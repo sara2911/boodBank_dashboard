@@ -25,6 +25,9 @@ import { NavAsideComponent } from './component/nav-aside/nav-aside.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { AllPostsComponent } from './component/posts/all-posts/all-posts.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchComponent } from './component/search/search.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { UserInfoComponent } from './component/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    AllPostsComponent
+    AllPostsComponent,
+    SearchComponent,
+    ProfileComponent,
+    UserInfoComponent,
   ],
   imports: [
     AppRoutingModule,

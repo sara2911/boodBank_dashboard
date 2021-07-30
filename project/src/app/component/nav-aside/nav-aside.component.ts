@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavAsideComponent implements OnInit {
   blood:string[]=['A+','B+','O+','AB+','A-','B-','O-','AB-']
   optionselect:any;
+  router: any;
   constructor( private mood :ServicesService,public _Router:Router) { }
 
   ngOnInit(): void {
@@ -18,7 +19,16 @@ export class NavAsideComponent implements OnInit {
   }
 submitval(v:any){
   console.log(v);
-this._Router.navigateByUrl(`/Users/${v}`)
+if(this._Router.url!==`/Users/${v}`
+  )
+  {console.log(true)
+      //  window.location.reload();
+
+this._Router.navigateByUrl(`/Users/${v}`).then(()=>{
+  window.location.reload();
+
+}) ;
+  }
 }
 
   getmood(){

@@ -1,9 +1,10 @@
-<navbar></navbar>
+<navbar class=""></navbar>
 <div class="row container-fluid p-0 m-0 " [ngClass]="{'bg_black':!bgcolor()}" >
-  <app-nav-aside class="col-3 p-0 m-0  "></app-nav-aside>
-  <div class="col-9">
-<div class="  mx-auto mt-3 bgtable" >
-  <router-outlet>
+  <!-- <navbar class="position-sticky row p-0 m-0"></navbar> -->
+
+  <app-nav-aside class="col-3 m-0  "></app-nav-aside>
+  <div class="col-7 p-0 ">
+<div class="  mt-3 bgtable "> 
     <table class="table table-hover">
         <thead>
             <tr class="htable">
@@ -11,28 +12,49 @@
                 <!-- <th>Age</th> -->
                 <th scope="col">Email</th>
                 <th scope="col">Blood Type</th>
-                <!-- <th>Phone</th> -->
-                <th scope="col">Choose Option</th>
+                <th scope="col">Phone</th>
+                <!-- <th scope="col">Choose Option</th> -->
 
             </tr>
     </thead>
-  <tbody class="table table-hover">
-      <tr *ngFor=" let u of users">
+  <tbody class="table table-hover ">
+      <tr *ngFor=" let u of users" class="px-2">
         <td>{{u.firstName}}</td>
-        <!-- <td>{{u.age}}</td> -->
         <td>{{u.email}}</td>
-        <td>{{u.bloodType}}</td>
-          <td>
+        <td>{{u.blood_type}}</td>
+        <td>{{u.phone}}</td>
+          <!-- <td>
             <button class="btn btn-primary" 
              (click)="sendobj(u.email)" >
           Details
           </button>
-        </td>
+        </td> -->
       </tr>
 
     </tbody>
     </table>
-  </router-outlet>
 </div>
 </div>
+<div class="col-2 p-2 m-0">
+  <div class="_card my-5 p-2">
+  <h6 class="p-2"> All users  {{countuser}}</h6>
+  <button class="btn btn-primary p-1 mt-3 ml-5 ">send request</button>
+  </div>
 </div>
+<!-- <div></div> -->
+</div>
+<!-- age: 
+25
+blood_type: 
+"A+"
+email: 
+"mahmoud123@gmail.com"
+firstName: 
+"Mahmoud"
+phone: 
+11458271960
+secondName: 
+"Mohamed"
+user_imgURL: 
+"https://firebasestorage.googleapis.com/v0/b/blo..."
+ -->
