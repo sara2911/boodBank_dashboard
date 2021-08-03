@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { snapshotChanges } from '@angular/fire/database';
-import { ServicesService } from 'src/app/services.service';
-
-
+import { ServicesService } from 'src/app/component/services/apiserve/services.service';
 
 @Component({
   selector: 'app-home',
@@ -23,8 +20,8 @@ export class HomeComponent implements OnInit {
       snap.forEach((childsnap)=>{
         this.count+=1
          this.arr[p]=this.count
-         console.log( this.arr[p])
-console.log(this.arr)
+//          console.log( this.arr[p])
+// console.log(this.arr)
       })
     })
   })

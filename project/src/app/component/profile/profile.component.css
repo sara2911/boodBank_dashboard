@@ -1,0 +1,51 @@
+/* 
+  .signup{
+    background-color:rgba(214, 213, 213,.5);
+    box-shadow:  7px 10px 5px rgb(151, 148, 148);
+    color:black;
+    font-weight: bold;
+    /* margin: auto; 
+    border-radius: 10px;
+    border: red;
+  font-size: 20px;
+  } */
+
+
+  .valid{
+    border: 1px solid red;
+  }
+  
+  input{
+    border-radius:20px;
+    border: 1px solid gray ;
+    height: 40px;
+    background-color: transparent;
+  padding:10px;
+  }
+  .profile{
+    height:80vh;
+    border-radius: 20px;
+    border:1px solid rgb(161, 161, 161);
+    background-color: transparent;
+
+  }
+  h3 div{
+    font-size: 25px;
+  }
+  h6{
+    font-size:25px;
+  }
+  img{
+    position: relative;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    top:-50px
+  }
+  button{
+    padding:10px;
+    border-radius: 20px;
+    background-color: #4058e0;
+  margin-left:15px;
+  border:0 ;
+  }

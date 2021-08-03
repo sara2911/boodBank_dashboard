@@ -1,0 +1,22 @@
+    <div class="row  _filter justify-content-between p-1 m-0 filtercontain">
+     
+    <div class="collapse p-1 m-0 col-10" id="filtercolaps">
+  <label>Government</label>
+  <select #optionG   (change)="serve.SetOptionGovern(optionG.value)">
+    <option *ngFor=" let g of governments">{{g}}</option>
+  </select>
+  <label>Day</label>
+  <select  #optionDay  >
+    <option *ngFor=" let d of Days ">{{d}}</option>
+  </select>
+</div>
+<button  class=" m-0 p-0 ml-auto col-1 btnfilter  text-center" type="button" data-toggle="collapse" data-target="#filtercolaps"
+aria-controls="filtercolaps" aria-expanded="false" aria-label="Toggle navigation">
+<i class="fas fa-filter "></i>
+</button>
+    </div>
+
+    <!-- serve.SetOptionGovern(optionG.value) -->
+
+  
+  

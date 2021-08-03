@@ -1,26 +1,18 @@
 .asidleft{
     height:100%;
-    width: 100%;
+    width:100%;
 
-/* position:fixed; */
+
 
 }
-.contain{
-    position:absolute;
-    min-height:100vh;
-    background-color:rgb(255, 229, 229);
-/* background-image: url('../../../../assets/images/bg5.jpg'); */
-background-size: 100% 100%;
-}
-/* .containpost, */
+
+
  ._card{
      background-color: white;
     border: 2px solid transparent;
     border-radius: 10px;
     /* margin: auto; */
     box-shadow: 7px 10px 5px rgb(128, 128, 128,.7);
-
-
 
 }
 .cardimg{
@@ -78,4 +70,7 @@ background-color: transparent;
 color: white;
 
 
+}
+._filter{
+    background-color: #ccc;
 }

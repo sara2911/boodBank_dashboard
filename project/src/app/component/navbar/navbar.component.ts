@@ -1,6 +1,6 @@
-import { ServicesService } from './../../services.service';
+import { ServicesService } from '../services/apiserve/services.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/authoServices/auth.service';
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',

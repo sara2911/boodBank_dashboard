@@ -8,7 +8,7 @@ import { UserDetailsComponent } from './component/user-details/user-details.comp
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AllPostsComponent } from './component/posts/all-posts/all-posts.component';
-import { AuthoGuard } from './component/autho.guard';
+import { AuthoGuard } from './component/authogard/autho.guard';
 import { ProfileComponent } from './component/profile/profile.component';
 import { UserInfoComponent } from './component/user-info/user-info.component';
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'Users',component:UsersComponent},//canActivate:[AuthoGuard]
   {path:'Users/:type',component: UserDetailsComponent},
   {path:'Search/:type',component:SearchComponent},
-{path:'profile',component:ProfileComponent},
+   {path:'profile',component:ProfileComponent},
   {path:'SignIn',component:SignInComponent},
   {path:'SignUp',component:SignUpComponent},
   {path:'Allposts',component:AllPostsComponent},
@@ -28,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule ] //PostsModuleModule
+  imports: [RouterModule.forRoot(routes)]
+  // exports: [RouterModule ]//PostsModuleModule
 })
 export class AppRoutingModule { }

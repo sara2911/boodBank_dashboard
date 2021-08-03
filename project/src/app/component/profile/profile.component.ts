@@ -1,6 +1,7 @@
-import { User } from './../../shared/services/user';
-import { AuthService } from 'src/app/component/services/auth.service';
-import { ServicesService } from 'src/app/services.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+// import { User } from './../../shared/services/user';
+import { AuthService } from '../services/authoServices/auth.service';
+import { ServicesService } from 'src/app/component/services/apiserve/services.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,40 +10,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor(public serve:ServicesService , public _autho:AuthService) { }
+  ourValidation:any;
+  id:any;
+  user:any
+  // _user:any;
+  //  user:any = this._autho.afAuth.currentUser;
+  //  name:any
+  //   email:any;
+  //   photoUrl:any; uid:any;
+  //   emailVerified:any
+  constructor(public serve:ServicesService , public _autho:AuthService) {
+     this.id=this._autho.userData.uid;
+    console.log(this.id)
+   }
 
   ngOnInit(): void {
+    this.ourValidation=new FormGroup({
+      name: new FormControl("",Validators.required),
+      pass: new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required,Validators.email])
+    });
+ this.serve.getAllAdmin().orderByKey().equalTo(this.id).once('value',(snap)=>{
+   snap.forEach((child)=>{
 
-    const user =this._autho.afAuth.currentUser.then((result)=>{
-      console.log(result)
-    },);
-    if (user!==null) {
-      // The user object has basic properties such as display name, email, etc.
-      // const displayName = user.displayName;
-      // const email = user.email;
-      // const photoURL = user.photoURL;
-      // const emailVerified = user.emailVerified;
-    
-      // The user's ID, unique to the Firebase project. Do NOT use
-      // this value to authenticate with your backend server, if
-      // you have one. Use User.getToken() instead.
-      // const uid = user.uid;
-    //   console.log(user.then((resut)=>{
-    //     // resut?.email
-    //     console.log(        resut?.email
-    //       )
-    //   }))
-    // }
-
-  }
-
+this.user=child.val();
+console.log(this.user)
+   })
+ })
+}
+update(u:any){
+  console.log(u)
+  console.log(this._autho.userData)
+  
+  let id=this._autho.userData.email;
+  console.log(id)
+ 
+}
 
 }
-}
-  //////////////
-  // uid: string;
-  // email: string;
-  // displayName: string;
-  // photoURL: string;
-  // emailVerified: boolean;

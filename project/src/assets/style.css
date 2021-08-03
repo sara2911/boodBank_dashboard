@@ -1,0 +1,277 @@
+@font-face{
+    font-family:'regular';
+    src:url(../fonts/Lobster-Regular.ttf);
+}
+*{
+    box-sizing: border-box;
+}
+:root{
+    scroll-behavior: smooth;
+   --my_font:'regular' ;
+   --my-color: rgb(25, 202, 119);
+}
+
+main{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+overflow: hidden;
+}
+#sec1{
+    width: 100%;
+    margin: 0;
+    padding: 0%;
+    height: 500px;
+}
+header{
+    margin:0;
+    padding: 0;
+    height: 500px;
+    width: 100%;
+    background:url("../images/b1.jpg");
+    background-size: 100% 100%;
+    color: white;
+    overflow: hidden;
+    
+}
+
+nav{
+  width: 100%; 
+  height: 60px;
+  margin:0;
+  padding:0px;
+}
+span{
+    padding:0;
+    margin:10px;
+    font-family:'regular';
+    font-size: 20px;
+    display:inline-block;
+    float: left;
+    height: 50px;
+}
+nav ul{
+    margin:auto;
+    width: 70%;
+    list-style: none;
+    float:right;
+}
+nav ul li{
+    padding: 0%;
+    margin:20px;
+    display: inline-block;
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+    height:50px ;
+    float:left;
+    font-size: 17px;
+    transition: .5s 0 ease;
+
+}
+nav ul li:hover{
+    font-size: 25px;
+}
+#clear{
+    clear: both;
+}
+
+header #contain{
+    width: 200px;
+    height: 100px;
+    top: 200px;
+    left: 100px;
+     position:relative; 
+}
+header #d1{
+    width: 200px;
+    height: 100px;
+    border:3px  solid yellow;
+    position:absolute;
+
+}
+header #d2{
+    position:absolute;
+    width: 200px;
+    height: 100px;
+    background-color:lightgray;
+    /* z-index: 10px;  i can not use it*/
+    left: 100px;
+    bottom: -50px;  
+    text-align: center; 
+}
+header #d2 span{
+    color:var(--my-color);
+
+
+}
+.sec2{
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+    justify-content:center;
+     margin: 20px;
+}
+.sec2 img{
+    width: 250px;
+    height: 300px;
+    border: 2px solid rgba(144, 144, 144, 0.815);
+    border-radius: 15px;
+}
+.sec2 .about{
+    width:250px;
+    height: 250px;
+    display: inline-block;
+    padding: 10px;
+
+}
+.sec2 .about h2{
+    font-family:var(--my_font);
+}
+
+.sec2 .about h3{
+    font-family: 'Rokkitt'; /*serif*/;
+    color:orange;
+    font-size: 15px;
+
+}
+#sec3{
+    width: 100%;
+    height: 500px;
+    background-image: url("../images/b3.jpg");
+    background-size: 100% 100%;
+    color: orange;
+    margin: 0;
+   
+}
+#sec3 h2{
+    text-align: center;
+    padding-top: 20px;
+}
+#sec3 .container{
+    width:80%;
+    height: 250px;
+    display: flex ;
+    justify-content: space-around;
+    margin: auto;
+margin-top:100px;
+}
+#sec3 .type{
+    width: 80px;
+    height: 80px;
+    border: 2px solid white;
+border-radius:60px;
+display:flex;
+justify-content: center;
+}
+ #sec3 .type span::before{
+content:'\273C';
+color: white;
+display: block;
+text-align: center;
+ }
+ #sec3 .type:hover{
+     width: 120px;
+     height: 120px;
+
+ }
+ #sec4{
+     width: 100%;
+     height: 350px;
+     position: relative;
+     margin-top:20px;
+ }
+  #sec4 #container{
+    width: 100%;
+    height: 300px;
+    display: flex;
+ }
+#above{
+     width: 350px;
+     height: 100px;
+     top: 80px;
+     left:350px ;
+position:absolute;
+border: 3px solid rgb(68, 224, 185);
+ }
+ #sec4 img{
+     width: 50%;
+     height:250px;
+ }
+ #sec4 #in_sec4{
+    width: 50%;
+    height:250px ;
+    background: rgb(221, 214, 214);
+padding: 0 20px ;
+text-align: center;
+overflow: hidden;
+ }
+ #sec4 div h3{
+     color: rgb(68, 224, 185);
+     margin: 30px 0;
+ }
+ #sec5{
+     width: 100%;
+     height:600px;
+     text-align: center;
+ }
+ #sec5 .imgs{
+    width:60%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    margin:auto;
+ }
+  #sec5 img{
+      display: inline-block;
+       margin: 0 5px; 
+  height: 200px; 
+  }
+ #sec5 img.part1{
+     width:200px;
+     width: 25%;
+     margin-left: 5px;
+      
+ } 
+ #sec5 img.part2{
+     width: 50%;
+     margin-right:10px ;
+    }
+.sec6{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.in-sec6{
+    width:50%;
+    height:300px;
+    display: inline-block;
+    margin: 0;
+    padding: 50px 50px;
+}
+.in-sec6 h3{
+color: var(--my-color);
+font-family:cursive;
+}
+.par-1{
+    background-color: lightgray;
+}
+.par-2{
+    background-image: url("../images/b4.jpg");
+    background-size:100% 100% ;
+}
+.par-3{
+    background-image: url("../images/g6.jpg");
+}
+.in-sec6 button{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(53, 52, 52);
+    color: white;
+    font-size: 15px;
+    margin-top: 50px;
+    border-radius: 10px;
+}

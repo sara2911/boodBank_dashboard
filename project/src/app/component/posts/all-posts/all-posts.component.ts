@@ -1,5 +1,5 @@
 import { snapshotChanges } from '@angular/fire/database';
-import { ServicesService } from './../../../services.service';
+import { ServicesService } from '../../services/apiserve/services.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -24,10 +24,31 @@ page:any
  postsInpage:any[]=[];
  disable_next:any=false;
  disable_pre:any=false;
- postofUserid:any[]=[]
+ postofUserid:any[]=[];
+ governments:any= [
+  'Alexandera',
+  'Cairo',
+  'Beheira',
+  'Beni Suief',
+  'Dakahlia',
+  'Damietta',
+  'Faiyuim',
+  'Al-minya',
+  'Asyut',
+  'Aswan'
+];
+Days:any[]=[];
+day(){
+  for(let i=1;i<31;i++){
+this.Days.push(i);
+  }
+}
+
+_keydelete:any;
   constructor(public serve:ServicesService ) { }
 
   ngOnInit(): void {
+    this.day()
 this.serve.getAllPosts().orderByKey().limitToFirst(2)
 .once('value', (snapshot) => {
   snapshot.forEach((childSnapshot) => {
@@ -39,7 +60,7 @@ this.arrPage[0]=this.postsInpage;
 this.posts=this.arrPage[0];
 console.log(this.posts);
 })
-    
+  //  console.log(this.Days) 
   }
 
   
@@ -52,7 +73,7 @@ select_Page(_page: any) {
     if(this.arrPage[this.page]==null){
       console.log(this.arrPage[this.page])
     this.serve.getAllPosts()
-    .orderByKey().startAt(this.lastkey).limitToFirst(2)
+    .orderByKey().startAfter(this.lastkey).limitToFirst(2)
     .once('value', (snapshot) => { 
         //reset values
         this.lastkey='' 
@@ -124,23 +145,8 @@ checkbtn(){
 }
 
 
-deletpost(id:any){
+deletpost(id:any,index:any){
 
-
-// this.serve.getAllAdmin().orderByChild('uid').equalTo('xTftpUCeYyZQCq9C4oaSsevGLFW2')
-// .once('value',(snap)=>{
-//   snap
-//   .forEach((childsnap)=>{
-//     this.keeee=childsnap.key
-//     console.log(this.keeee)
-//   console.log(childsnap.val())
-// })
-// })
-// this.serve.AddAdmin().remove('TOH5v3usOVYoKB4f3UmBPU1uEjt1')
-// console.log(this.serve.AddAdmin().subscribe()
-
-
-// this.serve.getpostbykey().equalTo(id)
 this.serve.getpostbykey().equalTo(id).once('value',(snap)=>{
   snap
   .forEach((childsnap)=>{
@@ -154,10 +160,41 @@ this.serve.getpostbykey().equalTo(id).once('value',(snap)=>{
 
 this.serve.getAllPosts().child(this._keydelete).remove()
 })
+console.log(index)
+let x=this.posts.splice(index,1)
+console.log(x,"sss")
+console.log(this.posts)
+
+
 }
-_keydelete:any;
 
+getvalue(g:any){
+  // let arr:any[]=[]
+  console.log(g)
+  // this.serve.getpostInGovern(g).once('value',(snap)=>{
+  //   snap.forEach((childsnap)=>{
+  //    arr.push(childsnap.val())
+  // })
 
+  // }).then(()=>{
+  //   this.posts=arr
+  // })
+
+  this.serve.getPostbyDay(g)
+}
+filtersearch(){
+    let arr:any[]=[]
+
+  let g=this.serve.getOptionGovern();
+   this.serve.getpostInGovern(g).once('value',(snap)=>{
+    snap.forEach((childsnap)=>{
+     arr.push(childsnap.val())
+  })
+
+  }).then(()=>{
+    this.posts=arr
+  })
+}
 
 }
 

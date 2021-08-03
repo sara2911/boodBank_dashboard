@@ -3,7 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import { ServicesService } from './app/services.service';
+import { ServicesService } from './app/component/services/apiserve/services.service';
 if (environment.production) {
   enableProdMode();
 }

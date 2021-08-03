@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from "../../shared/services/user"
+import { User } from "../../../shared/services/user"
 // import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
@@ -22,7 +22,7 @@ export class AuthService {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
-      if (user) {
+      if (user){
         this.userData =user;
         localStorage.setItem('user',JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')||'');
@@ -49,13 +49,13 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email:any, password:any) {
+  SignUp(email:any, password:any,name:any) {
     return this.afAuth.createUserWithEmailAndPassword(email,password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         // this.SendVerificationMail();
-        this.SetUserData(result.user);
+        this.SetUserData(result.user,name);
         this.router.navigate(['/SignIn'])
       }).catch((error) => {
         window.alert(error.message)
@@ -89,11 +89,11 @@ export class AuthService {
   }
 
   // Returns true when user is looged in and email is verified
-  get  isLoggedIn():boolean {
+  get isLoggedIn():boolean {
 
     const _user =JSON.parse(localStorage.getItem('user')||'');
-    console.log(_user,"islogin")
-    return (_user !==null) ? true : false;
+    console.log(_user,"islogin");
+    return (_user !==null)?true:false;
     //  && _user.emailVerified !== false
   }
 
@@ -110,7 +110,7 @@ export class AuthService {
        this.ngZone.run(() => {
           this.router.navigate(['Home']);
         })
-      this.SetUserData(result.user);
+      this.SetUserData(result.user,'');
     }).catch((error) => {
       window.alert(error)
     })
@@ -119,15 +119,17 @@ export class AuthService {
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user:any) {
+  SetUserData(user:any,name:any){
+    console.log(name,"name")
     const userRef =this.afs.database.ref(`/Admin/${user.uid}`);
-    const userData: User ={
+    const userData:User={
       uid: user.uid,
       email: user.email,
-      displayName:user.displayName,
+      displayName:name,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified
     }
+
     // return userRef.push(userData)
     return userRef.set(userData)
     //   , {merge:true

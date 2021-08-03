@@ -1,0 +1,24 @@
+._Card{
+    border-radius:20px;
+    box-shadow: 10px 5px 5px gray;
+    position:absolute;
+border: 1px solid gray;
+background-color: white;
+
+}
+.imgcard{
+    position:relative;
+
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    top:-50px;
+    display:block;
+} 
+._card_post{
+    border-radius:20px;
+    box-shadow: 10px 5px 5px gray;
+border: 1px solid gray;
+background-color: white;
+
+}

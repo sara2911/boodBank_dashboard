@@ -7,7 +7,7 @@ import { HomeComponent } from './component/home/home.component';
 import { UsersComponent } from './component/users/users.component';
 import { ErrorComponent } from './component/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ServicesService } from './services.service';
+import { ServicesService } from './component/services/apiserve/services.service';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { UserDetailsComponent } from './component/user-details/user-details.component';
@@ -18,7 +18,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-import { AuthService } from './component/services/auth.service';
+import { AuthService } from './component/services/authoServices/auth.service';
 import {RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavAsideComponent } from './component/nav-aside/nav-aside.component';
@@ -28,6 +28,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchComponent } from './component/search/search.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { UserInfoComponent } from './component/user-info/user-info.component';
+import { FilterComponent } from './component/filter/filter.component';
+import { TransDataPipe } from './component/pipe/trans-data.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { UserInfoComponent } from './component/user-info/user-info.component';
     SearchComponent,
     ProfileComponent,
     UserInfoComponent,
+    FilterComponent,
+    TransDataPipe,
   ],
   imports: [
     AppRoutingModule,

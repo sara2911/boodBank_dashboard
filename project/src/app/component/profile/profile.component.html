@@ -1,1 +1,38 @@
-<p>profile works!</p>
+<navbar class="container-fluid m-0 p-0"></navbar>
+<div class="container-fluid contain  m-0 row p-0">
+  <div class="container-fluid _contain  m-0 row p-0"></div>
+  <app-nav-aside class="col-2 p-0 m-0"></app-nav-aside>
+    <div class="col-9 mx-auto p-3 row"> 
+      <div class=" ml-auto w-50 p-4  profile  mt-3"> 
+        <div class="col-12 p-0 m-0 text-center  ">
+          <img src="../../../assets/images/noavatar1.png" class="mx-auto">
+        </div> 
+        <h4 class="text-center col-12 my-4">My profile</h4>
+      
+            <div class="row col-12 p-0 m-0" *ngIf="user">
+
+              <div class="row col-12   p-0 m-0 my-2">
+                <h6> Hello 
+                <input value="{{user.displayName}}"/> 
+              </h6>
+              </div>
+              <div class=" col-12 p-0 m-0  my-2">
+                  <h6>Email: <input value="{{user.email}}" #emailAutho></h6>
+                  <!-- <p>Email Verified: <strong>{{user.emailVerified}}</strong></p> -->
+                </div>
+                <div class="col-12  my-2 mt-4">
+                <button (click)="update('')">update</button>
+                <button routerLink="/SignUp"> create Acount</button>
+                <button>delete Acount</button>
+               </div>
+             
+              </div>
+              </div>
+            </div> 
+            </div>
+  
+     
+   
+
+  
+  

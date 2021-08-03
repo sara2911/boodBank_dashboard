@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ServicesService } from 'src/app/services.service';
+import { ServicesService } from '../services/apiserve/services.service';
 
 @Component({
   selector: 'app-user-info',

@@ -1,23 +1,4 @@
 
-      <!-- <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
-      </div> -->
-
-      
-      <!-- Continue with Google -->
-      <!-- <div class="formGroup">
-        <!-- <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()"> -->
-          <!-- <i class="fab fa-google-plus-g"></i>
-          Continue with Google
-        </button> -->
-      <!-- </div>  -->
-
-    <!-- <div class="redirectToLogin">
-      <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
-    </div> -->
- 
-<!-- ///////////////////////////////// -->
-
 <div class="container-fluid bgImg p-5 m-0">
   <div>
   <div class="signup w-50 mx-auto p-3">
@@ -40,7 +21,7 @@
       </div>
 
 
-      <input type="submit" #submit (click)="authService.SignUp(inputmail.value, pass.value)">
+      <input type="submit" #submit (click)="authService.SignUp(inputmail.value, pass.value,inputname.value)">
     </form>
   </div>
 </div>

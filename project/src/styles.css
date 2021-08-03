@@ -11,3 +11,21 @@
   box-shadow: 5px 10px 5px black;
 /* color: black; */
 }
+.contain{
+  position:relative;
+  min-height:95vh;
+}
+._contain{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-color: whitesmoke;
+  /* background-color: rgb(151, 176, 255); */
+   /* background-color:rgb(255, 229, 229); */
+   /* background-image: url("./assets/images/bg5.jpg"); */
+   background-size: 100% 100%;
+   background-position:100% 100%; 
+   object-fit:fill;
+   opacity:.7
+  ;
+}

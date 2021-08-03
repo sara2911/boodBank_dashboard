@@ -1,15 +1,27 @@
+<navbar class="container-fluid p-0 m-0"></navbar>
 
   <div class=" container-fluid row m-0 p-0 contain" [ngClass]="{'bg_black':!getmood()}">
-    <navbar class="container-fluid col-12  p-0 m-0"></navbar>
-    <app-nav-aside class="asidleft col-3  mr-2 p-0"></app-nav-aside>
-  <div class=" containpost col-5 p-2 mt-2 p-0 mx-auto" id="top">
-    <div *ngFor="let p of posts">
+    <div class="_contain container-fluid"></div>
+
+    <app-nav-aside class="col-2  mr-2 p-0"></app-nav-aside>
+    <div class=" containpost col-9 p-2 mt-2 p-0 mx-auto row" id="top">
+      <div class="col-12 row">
+    <app-filter class="col-10"></app-filter>
+    <button class="btn" (click)="filtersearch()">Search</button>
+  </div>
+    <div *ngFor="let p of posts ; index as i" class="col-7 mx-auto">
+      
+
+
+
       <div class="_card mt-2 ">
           <div class="row p-0 m-0">
             <div class="col-12 top_card p-0 m-0 ">
             <img class="cardimg " src={{p.user_imgURL}} alt="Card image cap"/>
           
-          <span>{{p.postDate.split(' ')[0] }} </span>
+          <span>{{p.postDate.split(' ')[0]}} </span>
+          <!-- <span>{{p.postDate.split(' ')[0].split('-')[1]}}month</span>
+          <span>{{p.postDate.split(' ')[0].split('-')[2]}}day</span> -->
           </div>
 
         <div class="card-body p-0 pl-4">
@@ -28,7 +40,7 @@
             <div class=" p-0 pb-2 divbtn row">
               <button class="btn" routerLink='/UserInfo/{{p.userID}}'> info user</button>
                <!--{{p.userID}}  -->
-              <button class="btn " (click)="deletpost(p.key)">delete post</button>
+              <button class="btn " (click)="deletpost(p.key ,i)">delete post</button>
             </div>
             
         </div>
@@ -55,6 +67,21 @@
   
   </ul>
 </div>
+
+
+
+<!-- <div class="col-3">
+  <h6 >search by type blood <button (click)='getvalue(optionG.value)'>search</button></h6>
+  <label>Government</label>
+  <select #optionG>
+    <option *ngFor=" let g of governments">{{g}}</option>
+  </select>
+  <label>Day</label>
+  <select  #optionDay>
+    <option *ngFor="let d of Days">{{d}}</option>
+  </select>
+  <button (click)='getvalue(optionDay.value)'>search</button>
+</div> -->
 
 </div>
 <!-- blood_type: 

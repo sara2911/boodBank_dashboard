@@ -1,29 +1,16 @@
-<p>user-info works!</p>
-<!-- <div class="container-fluid  bg-img m-0 p-0 "> -->
-    <navbar></navbar>
-    <div class="container-fluid row m-0 p-0 bg-img cover">
-  <app-nav-aside class="col-3 p-0 "></app-nav-aside>
-  <div class="col-3 p-3">
-      <img src={{userinfo.user_imgURL}}>
-      <div></div>
-     <h6>{{userinfo.firstName}}</h6>
-     <h6>{{userinfo.secondName}}</h6> 
-    <h6>{{userinfo.blood_type}}</h6>
-    <h6>{{userinfo.email}}</h6>
-    <h6>{{userinfo.phone}}</h6> 
-    <!-- <h6>{{userinfo.phone}}</h6>  -->
+<navbar class="container-fluid p-0 m-0 "></navbar>
+    <div class="container-fluid row m-0 p-0   d-flex justify-content-between contain">
+  <div class=" container-fluid row m-0 p-0  _contain"></div>
+      <app-nav-aside class="col-3 p-0 "></app-nav-aside>
+ 
+  <div class=" col-4 mt-5 mr-5 ">
 
-  </div>
-  <div class=" col-6 mx-auto">
-  
-     <div *ngFor="let p of posts"> -->
-         <div class="_card mt-2 ">
+     <div *ngFor="let p of posts">
+         <div class="_card_post  mt-2 p-2">
             <div class="row p-0 m-0">
               <div class="col-12 top_card p-0 m-0 ">
-              <img class="cardimg " src={{p.user_imgURL}} alt="Card image cap"/>
-            
-            <span>{{p.posh6ate.split(' ')[0] }} </span>
-            </div>
+              <!-- <img class="cardimg " src={{p.user_imgURL}} alt="Card image cap"/> -->
+                        </div>
   
           <div class="card-body p-0 pl-4">
             <h6 class="card-title">I need help</h6>
@@ -44,13 +31,27 @@
               
           </div>
           
-        <!-- </div>
+        </div>
       </div>
     </div>
-  </div> -->
+  </div>
+  <div class="col-3">
+    <div class="_Card p-3 mt-5">
+                  <img src={{userinfo.user_imgURL}} class="imgcard mx-auto">
+      <!-- <img src={{userinfo.user_imgURL}}> -->
+      
+     <h6><span>First name:</span> {{userinfo.firstName}}</h6>
+     <h6><span>Second name:</span> {{userinfo.secondName}}</h6> 
+    <h6> <span>Blood type :</span>{{userinfo.blood_type}}</h6>
+    <h6> <span>Email : </span>{{userinfo.email}}</h6>
+    <h6> <span>Phone</span>{{userinfo.phone}}</h6> 
+
+  </div>
+</div>
+  </div>
   <!-- </div> -->
-  <!-- </div> -->
-  <!-- age: 
+  <!-- </div>
+   age: 
   26
   blood_type: 
   "B+"
