@@ -6,25 +6,24 @@
   object-fit:fill;
   background-size: 100% 100%;
   /* background-image: linear-gradient(to right,hsla(240, 100%, 50%, 0.5),rgb(0, 0, 255,.2)); */
-height:95vh;
+/* height:95vh; */
 /* background-color: rgb(177, 177, 255); */
 /* background-color:rgb(255, 237, 237); */
 /* background-color: whitesmoke */
 ;
 }
-.navleft{
-  
-}
+
 
 .cards{
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   /* justify-content:space-between; */
-padding-left: 10px;}
+padding-left: 10px;
+height: fit-content;}
 .divCard{
-  width: 100%;
-  height: fit-content;
+  width:100%;
+  height:fit-content;
   /* border: 2px solid gray;
   box-shadow: 2px 5px 5px rgb(246, 51, 51); */
 
@@ -39,7 +38,7 @@ padding-left: 10px;}
   top: 0;
   color:black;
   z-index:10;
-  border-radius:20px;
+  border-radius:15px;
   clip-path: circle(0 at 50% 50%);
 -webkit-transition: 1s 0s all ease;
 
@@ -49,7 +48,7 @@ padding-left: 10px;}
   position: relative;
   height:110px;
   width: 100%;
-  border-radius: 20px;
+  border-radius:15px;
   /* box-shadow: 2px 5px 5px rgb(246, 51, 51); */
    box-shadow: 2px 5px 5px gray;
   /* border: 1px solid gray ;  */
@@ -65,14 +64,14 @@ padding-left: 10px;}
   position: relative;
   height:40px;
   /* background-color:red; */
-background-image: url('../../../assets/images/blood2.png');
+background-image: url('../../../assets/images/drop1.jpg');
 background-size: 100% 100%;
 object-fit: fill;
   /* background-color: rgb(237,103,97); */
   color:white;
    /* top: -30px; */
   align-items:center;
-  border-radius: 10px;
+  border-radius:10px;
   z-index:10;
 
   display: inline-block;

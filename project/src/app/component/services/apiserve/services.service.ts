@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, snapshotChanges } from '@angular/fire/database';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,17 +7,35 @@ export class ServicesService {
   mood:any=true
   apearNav:any=false;
 optionGovern:any;
+optionDay:any;
+filterday:any;
+num_repo:any;
+btn_deletrepo:any;
 SetOptionGovern(g:any){
   this.optionGovern=g
 }
 getOptionGovern(){
   return this.optionGovern;
 }
+SetoptionDay(d:any){
+  this.optionDay=d
+}
+getoptionDay(){
+  return this.optionDay;
+}
 
   constructor(public db:AngularFireDatabase) {
   }
 getAllAdmin(){
    return this.db.database.ref('/Admin')
+}
+getreports(r:any){
+  return this.db.database.ref('/Admin/Report')
+  .orderByChild('userID').equalTo(r)
+}
+deleterepo(){
+  return this.db.database.ref('/Admin/Report')
+
 }
 AddAdmin(){
   return this.db.list('/Admin')
@@ -54,19 +72,11 @@ getpostInGovern(g:any){
 }
  getPostbyDay(d:any){
  return this.db.database.ref('/Posts').orderByChild('postDate')
- .once('value',(snap)=>{
-snap.forEach((childsnap)=>{
-  let v =childsnap.val().postDate.split(' ')[0].split('-')[2] ;
-  if(v==d)
-  {
-    console.log(childsnap.val())
-  }    
-   }); 
-})
+
 
  }
 deleteUser(id:any){
-   return this.db.database.ref('/Users').orderByKey().equalTo(id)
+   return this.db.database.ref('/Users').child(id).remove()
 }
 }
 // government

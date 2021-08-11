@@ -1,88 +1,78 @@
 <navbar class="container-fluid p-0 m-0"></navbar>
 
-  <div class=" container-fluid row m-0 p-0 contain" [ngClass]="{'bg_black':!getmood()}">
-    <div class="_contain container-fluid"></div>
+<div class=" container-fluid row m-0 p-0 contain">
+  <div class="_contain container-fluid" [ngClass]="{'bg_black':!getmood()}"></div>
 
-    <app-nav-aside class="col-2  mr-2 p-0"></app-nav-aside>
-    <div class=" containpost col-9 p-2 mt-2 p-0 mx-auto row" id="top">
-      <div class="col-12 row">
-    <app-filter class="col-10"></app-filter>
-    <button class="btn" (click)="filtersearch()">Search</button>
-  </div>
+  <app-nav-aside class="col-2   p-0"></app-nav-aside>
+  <div class=" containpost col-9 p-2  p-0 mx-auto row" id="top">
+    <div class="col-12 row _search d-flex">
+      <app-filter class="col-10 mr-auto"></app-filter>
+      <span class="">
+        <button class="btn _btn-search" (click)="filtersearch()">Search</button>
+      </span>
+    </div>
     <div *ngFor="let p of posts ; index as i" class="col-7 mx-auto">
-      
-
-
 
       <div class="_card mt-2 ">
-          <div class="row p-0 m-0">
-            <div class="col-12 top_card p-0 m-0 ">
-            <img class="cardimg " src={{p.user_imgURL}} alt="Card image cap"/>
-          
-          <span>{{p.postDate.split(' ')[0]}} </span>
-          <!-- <span>{{p.postDate.split(' ')[0].split('-')[1]}}month</span>
-          <span>{{p.postDate.split(' ')[0].split('-')[2]}}day</span> -->
+        <div class="row p-0 m-0">
+          <div class="col-12 top_card p-0 m-0 ">
+            <img class="cardimg " src={{p.user_imgURL}} alt="Card image cap" />
+
+            <span>{{p.postDate.split(' ')[0]}} </span>
           </div>
 
-        <div class="card-body p-0 pl-4">
-          <h6 class="card-title">I need help</h6>
-          <h6>
-            <span>blood_type :</span>
-            {{p.blood_type}}</h6>
-          
-            <h6><span>Government :</span>{{p.government}}</h6>
-           <h6> <span>City :</span>
-            {{p.city}}</h6>
-          <h6>
-            <span>donatin Date :</span>
-            {{p.donDate}}</h6>
-            
+          <div class="card-body p-0 pl-4">
+            <h6 class="card-title">I need help</h6>
+            <h6>
+              <span>blood_type :</span>
+              {{p.blood_type}}</h6>
+
+            <h6><span>Government :</span>{{p.government}}, at: {{p.city}} </h6>
+            <!-- <h6> <span>City :</span>
+              {{p.city}}</h6> -->
+            <h6>
+              <span>donatin Date :</span>
+              {{p.donDate.split(' ')[0]}}</h6>
+            <h6 *ngIf="p.details"><span>details : </span>{{p.details}}</h6>
             <div class=" p-0 pb-2 divbtn row">
-              <button class="btn" routerLink='/UserInfo/{{p.userID}}'> info user</button>
-               <!--{{p.userID}}  -->
-              <button class="btn " (click)="deletpost(p.key ,i)">delete post</button>
+              <button class="btn btn_info" routerLink='/UserInfo/{{p.userID}}'> info user</button>
+              <!--{{p.userID}}  -->
+              <button class="btn btn_d" (click)="deletpost(p.key ,i)">delete post</button>
             </div>
-            
+
+          </div>
+
         </div>
-        
       </div>
     </div>
+    <div class="row m-0 p-0 col-12 pt-4 px-5">
+      <button class="btn_pre ml-auto" (click)="btn_prev()" [disabled]="disable_pre">
+        <i class="fas fa-angle-left"></i>
+      </button>
+      <ul class="pagination  ulpagination mx-1">
+        <button (click)="select_Page(1)" [ngClass]="{'btnblue':btn1.value==this.active_page}" value="1" #btn1>1</button>
+
+        <button (click)="select_Page(2)" value="2" #btn2 [ngClass]="{'btnblue':btn2.value==this.active_page}">
+          2</button>
+
+        <button (click)="select_Page(3)" value="3" #btn3 [ngClass]="{'btnblue':btn3.value==this.active_page}">
+          3</button>
+        <button value="4" (click)="select_Page(4)" #btn4 [ngClass]="{'btnblue':btn4.value==this.active_page}">4</button>
+        <button value="5" (click)="select_Page(5)" #btn5 [ngClass]="{'btnblue':btn5.value==this.active_page}">5</button>
+       
+      </ul>
+      <button class="btn_next mr-auto" (click)="next_btn()" [disabled]="disable_next">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>
+    <div *ngFor="let b of btn_count; index as i">
+      <button class="btn btn-info" >{{i+1}}</button>
+    </div>
   </div>
-  <ul class="pagination  ulpagination m-auto">
-    <button class="btn_pre" (click)="btn_prev()" [disabled]="disable_pre">prev</button>
-    <button (click)="select_Page(1)"  
-      [ngClass]="{'btnblue':btn1.value==this.active_page}"
-  
-          value="1" #btn1>1</button>  
-  
-    <button (click)="select_Page(2)"
-          value="2" #btn2  [ngClass]="{'btnblue':btn2.value==this.active_page}">
-      2</button> 
-  
-    <button (click)="select_Page(3)" value="3" #btn3 [ngClass]="{'btnblue':btn3.value==this.active_page}">
-      3</button>
-    <button value="4" (click)="select_Page(4 )"  #btn4 [ngClass]="{'btnblue':btn4.value==this.active_page}">4</button>
-    <button value="5" (click)="select_Page(5 )" #btn5 [ngClass]="{'btnblue':btn5.value==this.active_page}">5</button>
-    <button class="btn_next" (click)="next_btn()" [disabled]="disable_next">next</button>
-  
-  </ul>
-</div>
 
 
 
-<!-- <div class="col-3">
-  <h6 >search by type blood <button (click)='getvalue(optionG.value)'>search</button></h6>
-  <label>Government</label>
-  <select #optionG>
-    <option *ngFor=" let g of governments">{{g}}</option>
-  </select>
-  <label>Day</label>
-  <select  #optionDay>
-    <option *ngFor="let d of Days">{{d}}</option>
-  </select>
-  <button (click)='getvalue(optionDay.value)'>search</button>
-</div> -->
-
+ 
 </div>
 <!-- blood_type: 
 "A+"
@@ -103,5 +93,3 @@ user_email:
 user_imgURL: 
 "https://firebasestorage.googleapis.com/v0/b/blo..." -->
 <!--  -->
-
-  

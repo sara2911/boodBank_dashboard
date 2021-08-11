@@ -1,28 +1,14 @@
-.bg-img{
-  /* background-image: url('../../../assets/images/bg5.jpg');
-background-repeat: no-repeat;
-background-size: cover; */
-/* z-index: -10; */
-/* opacity: .7; */
-/* position:relative; */
-/* height: 100vh; */
-    /* width: 100%; */
+.bgtable{
+  padding: 10px;
+  /* background-color: rgb(212, 212, 255); */
+  background-color:white;
+  margin: 0;
+  overflow: hidden;
+  box-sizing:border-box;
+  border-radius:20px;
+  /* border: 2px solid rgb(91, 54, 255); */
+  /* box-shadow: 10px 7px 5px rgb(161, 160, 160);  */
+  /* background-color: rgb(255, 155, 255); */
+  box-shadow: 7px 10px 5px rgba(167, 147, 147, 0.7);
+height: min-content;
 }
-/* h4 span{
-  font-size: 20px;
-} */
-/* .bg-img::before*/
-
-/* .cover{
-  /* content: ""; 
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-color:rgb(255, 255, 255,.5);
-  z-index: 10;
-}  */
-/* .cover{
- 
-} */

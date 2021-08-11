@@ -1,24 +1,30 @@
 <navbar class="row p-0 m-0  "></navbar>
-<div class="row container-fluid p-0 m-0 contain" [ngClass]="{'bg_black':!bgcolor()}" >
-  <div class="container-fluid p-0 m-0 _contain"></div>
+<div class="row container-fluid p-0 m-0 contain">
+ <div class="container-fluid p-0 m-0 _contain "
+ [ngClass]="{'bg_black':!bgcolor()}"
+ ></div>
+  <app-nav-aside class="col-2 m-0 p-0 "></app-nav-aside>     
+  <div class="my-0 p-0 row col-9 mx-auto">
+    <div class=" mt-3 row m-0 p-0  d-flex justify-content-between bg_filter col-12 mx-auto d-flex">
+      <!-- <div class="_card  p-2 col-2">
+       <h6 class="p-2 mt-2"> All users : {{countuser}}</h6>
+        <button class="btn btn-primary p-1 mt-3 ml-5 ">send request</button>
+       </div>  -->
+         <app-filter class="col-10 m-0 p-0">
+         </app-filter>
+         <span class="col"> 
+           <button class="btn   p-2 m-0 _btn-search" (click)="getResult_search()"> Search</button>
+         </span>
   
-      
-  <app-nav-aside class="col-2 m-0 p-0 "></app-nav-aside>
-  <div class="col-9 mx-auto p-0 ">
-    <div class="row m-0 p-0 mt-2 d-flex justify-content-between bg_filter ">
-       <!-- <div class="_card  p-2 col-2">
-        <h6 class="p-2 mt-2"> All users : {{countuser}}</h6>
-         <button class="btn btn-primary p-1 mt-3 ml-5 ">send request</button>
-        </div>  -->
-          <app-filter class="col-9 m-0 p-0">
-          </app-filter>
-          <button class="btn col-2  p-0 m-0" (click)="getResult_search()"> Search</button>
-          <button class=" btn col-1" (click)="getmore()">more</button>
-
-        </div>
+       </div>
     
-<div class="  mt-3 bgtable "> 
-    <table class="table table-hover">
+        <div class="m-0 p-0 col-1 arr">
+          <button class="my-5 mx-auto"  (click)="pre()" [disabled]="btnPre"><i class="fas fa-chevron-left "></i></button>
+      
+        </div>
+<div class="bgtable col-10 m-0 p-0 ">
+
+    <table class="table table-hover _table ">
         <thead>
             <tr class="htable">
               <th></th>
@@ -32,33 +38,34 @@
 
             </tr>
     </thead>
-  <tbody class="table table-hover ">
+  <tbody class="">
     <div *ngIf="!users" ></div>
       <tr *ngFor=" let u of users ;index as i" class="px-2">
-        <td>{{i}}</td>
+        <!-- <td >{{_number+i}}</td> -->
         <td>{{u.firstName}}</td>
         <td>{{u.email}}</td>
         <td>{{u.blood_type}}</td>
         <td>{{u.phone}}</td>
         <td>{{u.government}}</td>
-          <!-- <td>
-            <button class="btn btn-primary" 
-             (click)="sendobj(u.email)" >
-          Details
-          </button>
-        </td> -->
+        <td>
+        <button class="btn _btn " (click)="userinfo(u.email)">info</button>
+        </td>
+        
       </tr>
+      <tr>Alluser {{countuser}} </tr>
 
     </tbody>
     </table>
 </div>
-</div>
-<!-- <div class="col-1">
-<button class=" btn" (click)="getmore()">more</button>
-</div> -->
-
+<div class="m-0 p-0 col-1  arr">
+  <button class="my-auto mx-auto" (click)="next()" [disabled]="btnNext">
+    <i class="fas fa-angle-right"></i>  </button>
 
 </div>
+
+</div>
+</div>
+<!-- </div> -->
 <!-- age: 
 25
 blood_type: 

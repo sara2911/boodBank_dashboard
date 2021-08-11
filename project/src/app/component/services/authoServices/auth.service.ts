@@ -1,6 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from "../../../shared/services/user"
-// import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import { AngularFireDatabase } from '@angular/fire/database';// AngularFireList
@@ -10,27 +9,33 @@ import { AngularFireDatabase } from '@angular/fire/database';// AngularFireList
 })
 
 export class AuthService {
-  userData: any; // Save logged in user data
-
+  auth // this.SetUserData(result.user);
+    () {
+    throw new Error('Method not implemented.');
+  }
+  userData:any; // Save logged in user data
+databaseAutho:any;
   constructor(
     // public afs: AngularFirestore,   // Inject Firestore service
     public afs: AngularFireDatabase,
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afAuth:AngularFireAuth, // Inject Firebase auth service
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
+    // this.databaseAutho=this.afs
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
       if (user){
         this.userData =user;
         localStorage.setItem('user',JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user')||'');
+        // JSON.parse(localStorage.getItem('user')||'');
         // console.log(this.userData)
       } else {
         localStorage.setItem('user','');
         // JSON.parse(localStorage.getItem('user')||'');
       }
+      window.location.reload
     })
 
   }
@@ -89,11 +94,12 @@ export class AuthService {
   }
 
   // Returns true when user is looged in and email is verified
-  get isLoggedIn():boolean {
+  // get
+   isLoggedIn():boolean{
 
-    const _user =JSON.parse(localStorage.getItem('user')||'');
+    const _user=JSON.parse(localStorage.getItem('user')||'');
     console.log(_user,"islogin");
-    return (_user !==null)?true:false;
+    return (_user!=='')?true:false 
     //  && _user.emailVerified !== false
   }
 
@@ -142,7 +148,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(()=>{
       localStorage.removeItem('user');
-      // this.router.navigate(['sign-in']);
+      this.router.navigate(['SignIn']);
     })
   }
 

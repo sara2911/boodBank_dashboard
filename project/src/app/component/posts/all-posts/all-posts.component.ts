@@ -45,12 +45,15 @@ this.Days.push(i);
 }
 
 _keydelete:any;
+num:any;
+btn_count:any[]=[1];
   constructor(public serve:ServicesService ) { }
 
   ngOnInit(): void {
+    this.serve.filterday=false
     this.day()
 this.serve.getAllPosts().orderByKey().limitToFirst(2)
-.once('value', (snapshot) => {
+.on('value', (snapshot) => {
   snapshot.forEach((childSnapshot) => {
     var childData=childSnapshot.val();
     this.postsInpage.push(childData);
@@ -60,32 +63,47 @@ this.arrPage[0]=this.postsInpage;
 this.posts=this.arrPage[0];
 console.log(this.posts);
 })
-  //  console.log(this.Days) 
+  //  console.log(this.lastkey) 
   }
 
   
-select_Page(_page: any) {
+  select_Page(_page:any){
     this.page=_page-1
     this.active_page=_page;
     this.checkbtn()
-    // console.log(this.posts)
-    // console.log(this.arrPage[this.page])
+    console.log(this.page);
+    console.log(this.arrPage[this.page]);
     if(this.arrPage[this.page]==null){
-      console.log(this.arrPage[this.page])
-    this.serve.getAllPosts()
-    .orderByKey().startAfter(this.lastkey).limitToFirst(2)
-    .once('value', (snapshot) => { 
+      // console.log(this.lastkey,"start");
+      console.log("create new");
+      console.log(this.arrPage[this.page]);
+    this.serve.getAllPosts().orderByKey()
+    .startAfter(this.lastkey).limitToFirst(2)
+    .on('value', (snapshot) => { 
         //reset values
-        this.lastkey='' 
-        this.postsInpage=[]
-    snapshot.forEach((childSnapshot) => {
-    console.log(this.lastkey,"start")
+        // this.lastkey='' 
+        this.postsInpage=[];
+    snapshot.forEach((childSnapshot) =>{
+    // console.log(this.lastkey,"start");
     var childData=childSnapshot.val() //get value
       this.lastkey=childSnapshot.key;//get key
     this.postsInpage.push(childData)
-    console.log(this.lastkey, "after")
+    // console.log(this.lastkey, "after")
 })
-this.pushposts(this.postsInpage,this.page)
+console.log(this.postsInpage.length,"length")
+if(this.postsInpage.length!==0){
+
+  console.log(this.postsInpage.length,"add")
+  this.num+=1;
+this.btn_count.push(this.num);
+this.pushposts(this.postsInpage,this.page);
+}
+else if(this.postsInpage.length==0){
+  console.log(this.postsInpage.length,"nodata");
+        this.disable_next=true;
+
+}
+// this.pushposts(this.postsInpage,this.page)//return
 })
  this.posts=this.arrPage[_page] //at the end final result [posts] is specfic  by pages
 }  
@@ -98,23 +116,27 @@ this.pushposts(this.postsInpage,this.page)
 
  pushposts(_postsInpage:any,_page:any){
 this.posts=[];
-  this.arrPage[_page]=this.postsInpage
-  console.log(this.arrPage[_page])
-  console.log( _page,"",this.arrPage)
+  this.arrPage[_page]=this.postsInpage;
+  // console.log(this.arrPage[_page]);
+  console.log( _page,"",this.arrPage);
   
-  console.log(_page,"",this.arrPage[1])
-  this.posts=this.arrPage[_page]
+  // console.log(_page,"",this.arrPage[1]);
+  this.posts=this.arrPage[_page];
   }
 
   next_btn(){
+    // console.log("next",this.active_page)
     this.active_page+=1;
-    if(this.active_page>=5){
-      this.active_page=5
-      this.disable_next=true;
-      this.disable_pre=false;
+    // if(this.active_page>=5){
+    //   this.active_page=5
+    //   // this.disable_next=true;
+    //   this.disable_pre=false;
 
-    }
+    // }
+    console.log("next",this.active_page)
+
     this.select_Page(this.active_page)
+
   }
 
   btn_prev(){
@@ -137,13 +159,12 @@ checkbtn(){
     this.active_page=1;
  }
   if(this.active_page>=5){
-  this.active_page=5
-  this.disable_next=true;
+  // this.active_page=5
+  // this.disable_next=true;
   this.disable_pre=false;
 
 }
 }
-
 
 deletpost(id:any,index:any){
 
@@ -168,24 +189,19 @@ console.log(this.posts)
 
 }
 
-getvalue(g:any){
-  // let arr:any[]=[]
-  console.log(g)
-  // this.serve.getpostInGovern(g).once('value',(snap)=>{
-  //   snap.forEach((childsnap)=>{
-  //    arr.push(childsnap.val())
-  // })
 
-  // }).then(()=>{
-  //   this.posts=arr
-  // })
 
-  this.serve.getPostbyDay(g)
-}
 filtersearch(){
-    let arr:any[]=[]
-
+  // this.active_page=0;
+    let arr:any[]=[];
   let g=this.serve.getOptionGovern();
+  let d=this.serve.getoptionDay();
+  if(d<10){
+    d='0'+d;
+    console.log(d);
+  }
+  if(g){
+  console.log(g,d,"ppppppppp");
    this.serve.getpostInGovern(g).once('value',(snap)=>{
     snap.forEach((childsnap)=>{
      arr.push(childsnap.val())
@@ -196,6 +212,38 @@ filtersearch(){
   })
 }
 
+if(d){
+  arr=[];
+  console.log(d);
+  this.serve.getPostbyDay(d).once('value',(snap)=>{
+    snap.forEach((childsnap)=>{
+      let v=childsnap.val().postDate.split(' ')[0].split('-')[2] ;
+      console.log(v);
+      if(d==v)
+      {
+        arr.push(childsnap.val())
+        console.log(childsnap.val())
+      }    
+       }) 
+    }).then(()=>{
+      this.posts=[];
+       this.posts=arr;
+    })
+}
+
+
+
+}
+// checkappar(n:any){
+//    let x=this.active_page-n
+//    if(3>x&&x>0)
+//    {console.log("condtion true",x)}
+// let y=n-this.active_page;
+
+//   if(3>y&&y>0){
+
+//   }
+// }
 }
 
 

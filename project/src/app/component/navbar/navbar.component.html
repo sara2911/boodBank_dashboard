@@ -1,38 +1,74 @@
 
-<div class="container-fluid p-0">
-<nav class="navbar navbar-expand-lg navbar-light navbg pt-1">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+
+
+
+<div class="container-fluid p-0 m-0 _bgnav row">
+<nav class="navbar navbar-expand-lg navbar-light  row col-12 p-1 m-0">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse p-1 m-0" id="navbarTogglerDemo01">
-    <ul class="navbar-nav mt-lg-0  row  m-0 ">
-      <!-- <li class="logo"></li> -->
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="dropdown  dropleft nav-item">
+        <button type="button" class="btn btn-danger dropdown-toggle  "
+         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell _bell"></i>
+        <span id="span_bell">{{serve.num_repo}}</span>
+        </button>
+        <div class="dropdown-menu ">
+          <a class="dropdown-item"*ngFor="let r of repots"
+        (click)="submitval(r.userID)"
+          
+          >{{r.details}}
+
+          <div class="dropdown-divider"></div>
+        </a>
+          <!-- <div class="dropdown-divider"></div> -->
+
+        </div>
+      </li>
+      <li class="dropdown  dropleft nav-item ">
+        <button type="button" class="btn btn-primary dropdown-toggle p-0" data-toggle="dropdown">
+          <!-- Dropdown button --><span class="span_admin mt-1 ">{{admin}}</span>
+        </button>
+        <div class="dropdown-menu ">
+          <a class="dropdown-item" routerLink="/profile">profile</a>
+          
+          <div class="dropdown-divider"></div>
+          <a [routerLinkActiveOptions]="{exact:true}" class="dropdown-item"
+           routerLinkActive="active" routerLink="/SignUp">create account</a>
+          <div class="dropdown-divider"></div>
+          <a class="p-0 dropdown-item" (click)="_authService.SignOut()">
+            <i class="fas fa-sign-out-alt "></i>
+            logout
+          </a>
+        </div>
+      </li>
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a> -->
+        <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> -->
+      
+      <li class="nav-item ">
+        <div  *ngIf='sun; then thenBlock else elseBlock' class="p-0  m-0 my-auto" ></div>
+        <ng-template #thenBlock> <button (click)='changmood()'> <i class="fas fa-moon sun pt-1"></i></button></ng-template>
+        <ng-template #elseBlock> <button (click)='changmood()'> <i class="fas fa-moon moon pt-1" #moon ></i></button></ng-template>
+      </li>
     </ul>
-</div>
-<div class="dropdown  dropleft float-right">
-  <button type="button" class="btn btn-primary dropdown-toggle p-0" data-toggle="dropdown">
-    <!-- Dropdown button --><span class="span_admin ">{{admin}}</span>
-  </button>
-  <div class="dropdown-menu ">
-    <a class="dropdown-item" routerLink="/profile">profile</a>
-    <a class="dropdown-item" href="#">Link 2</a>
-    <a class="dropdown-item" href="#">Link 3</a>
-    <div class="dropdown-divider"></div>
-    <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/SignUp">create account</a>
-    <div class="dropdown-divider"></div>
-    <a href="#"class="p-0" (click)="_authService.SignOut()">
-      <i class="fas fa-sign-out-alt "></i>
-      logout
-    </a>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
   </div>
-</div>
-  <div  *ngIf='sun; then thenBlock else elseBlock'  ></div>
-<ng-template #thenBlock> <button (click)='changmood()'> <i class="fas fa-moon sun"></i></button></ng-template>
-<ng-template #elseBlock> <button (click)='changmood()'> <i class="fas fa-moon moon" #moon ></i></button></ng-template>
 </nav>
 
 </div>
-
-
 

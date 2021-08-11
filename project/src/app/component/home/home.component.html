@@ -1,18 +1,17 @@
-<navbar class="row p-0 m-0 sticky-top navtop" ></navbar>
-<!-- <div class="_contain container-fluid"></div> -->
-<div class="row container-fluid contain p-0 m-0 " 
-[ngClass]="{'bg_black':!getmood()}" >
-<div class="_contain container-fluid"></div>
+<navbar class="row p-0 m-0 " ></navbar>
+<div class="row container-fluid contain p-0 m-0 ">
+<div class="_contain container-fluid m-0 p-0"
+ [ngClass]="{'bg_black':!getmood()}"></div>
 
-    <app-nav-aside class="col-2 p-0   navleft"></app-nav-aside>
-    <div class="row px-2 col-10 m-0  mt-4 ">
+    <app-nav-aside class="col-2 p-0  navleft"></app-nav-aside>
+    <div class="row px-2 col-10 m-0  ">
 <div class="row p-0 m-0 cards">
-    <div class="col-md-3  col-6 divCard  p-3"
+    <div class="col-md-3  col-6 divCard p-3 m-0  mt-4"
      *ngFor=" let b of blood">
       <a routerLink='/Users/{{b}}'>
         <div class=" BloodType row p-0 m-0 ">
           <div class="over">
-            <h5 class="text-center  mt-4 pl-5 ">click to info</h5>
+            <h5 class="text-center  mt-5 pl-5 ">click to info</h5>
           </div>
            <div class="bloodimg col-3 text-center p-0">
              <!-- <h4 class="text-center mt-1">{{b}}</h4>  -->

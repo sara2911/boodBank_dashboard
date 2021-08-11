@@ -10,8 +10,8 @@ import { ServicesService } from '../../component/services/apiserve/services.serv
 })
 export class SignUpComponent implements OnInit {
   ourValidation=new FormGroup({
-    name: new FormControl("",Validators.required),
-    pass: new FormControl('',[Validators.required]),
+    name: new FormControl('',Validators.required),
+    pass: new FormControl('',Validators.required),
     email:new FormControl('',[Validators.required,Validators.email])
   });
   constructor(
@@ -30,9 +30,12 @@ export class SignUpComponent implements OnInit {
   get EmailValid(){
     return this.ourValidation.controls.email.valid;
   }
-  submit(){
-    if(this.ourValidation){
-      
+  onsubmit(e:any, p:any, n:any){
+    console.log(this.ourValidation.valid)
+    if(this.ourValidation.valid){
+      this.authService.SignUp(e,p,n)
+      return true
     }
+    else return alert('enter valid value')
   }
 }

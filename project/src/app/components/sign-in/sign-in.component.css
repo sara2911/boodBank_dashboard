@@ -7,12 +7,16 @@
   
   }
   .login{
-    background-color:rgba(214, 213, 213,.5);
-    box-shadow:  7px 10px 5px rgb(151, 148, 148);
+    /* background-color:rgba(214, 213, 213,.5); */
+    /* box-shadow:  5px 5px 5px rgb(151, 148, 148); */
     color:black;
     font-weight: bold;
     border-radius: 10px;
     font-size: 20px;
+    background-color: rgb(214, 214, 214,.4);
+    border: 1px solid gray;
+    box-shadow:  5px 5px 5px rgb(172, 172, 172);
+
   }
   .btns{
     display: flex;
@@ -23,4 +27,11 @@
   }
   input{
     border-radius: 10px;
+  }
+  .btn_sub{
+    /* width:80px; */
+    display:inline-block;
+    /* padding:7px; */
+    border-radius: 15px;
+    font-size: 23px;
   }

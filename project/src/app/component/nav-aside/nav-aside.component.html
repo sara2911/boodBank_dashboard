@@ -1,37 +1,36 @@
-<aside class="m-0">
+<aside class="m-0 _bgnav">
 
-  <div class="row my-2 p-0 mx-auto">
+  <div class="row my-2 p-0 mx-auto ">
     <!-- <img class="logo" src="../../../assets/images/hand.jpg"> -->
-    <span class="logotext pt-2">Blood Bank</span>
+    <!-- <span class="logotext pt-2">Blood Bank</span> -->
   </div>
-  <hr class="my-4" />
-  <ul class="">
+  <!-- <hr class="my-4" /> -->
+  <ul class="mt-5">
     <li class="col-12"><a  [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/Home"> <i
         class="fas fa-home"></i>
 
       Home </a></li>
-      <li class="col-12"><a  [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/Users"> <i
+      <li class="col-12"><a 
+         [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/Users"> <i
         class="fas fa-users"></i>
 
       Users </a></li>
-      <li class="col-12"><a  [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/Allposts">
+      <li class="col-12">
+        <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" 
+        routerLink="/Allposts">
       <i class="fas fa-poll-h"></i>
 
       Posts
     </a></li>
 
-    <li class="col-12 liSearch  d-flex">
-      <a class="col-12 px-2 m-0 d-flex py-3 pt-2">
-      <i class="fas fa-search pr-2  "></i>
-      <span class="p-0 m-0">Search</span> 
-
-
-          <select  class="inputSelect  my-auto mx-auto"  #optionselect>
-            <option *ngFor="let b of  blood"  [ngValue]="b">{{b}}</option>
-          </select>
-
-          <a (click)="submitval(optionselect.value)"id="icone"><i class="fas fa-search pl-2"></i></a>
-
+    <li class="col-12 liSearch ">
+      <a class="col-12  m-0 d-flex p-0 py-3 ">
+        <select  class="inputSelect"  #optionselect>
+          <option *ngFor="let b of  blood"  [ngValue]="b">{{b}}</option>
+        </select>
+      <a (click)="submitval(optionselect.value)" class="p-0 m-0 ASearch">
+        <i class="fas fa-search p-2 "></i></a>
+       Search 
       </a>
 </li>
   </ul>

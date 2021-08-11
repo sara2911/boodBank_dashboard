@@ -18,7 +18,7 @@ values:any[]=[];
 
   ngOnInit(): void {
     
-        this.ourserve.getAllUser().orderByChild('blood_type').equalTo(this.type).once('value',
+        this.ourserve.getAllUser().orderByChild('blood_type').equalTo(this.type).on('value',
     (snapshot)=>{
             snapshot.forEach((childSnapshot) => {
        let v= childSnapshot.val()

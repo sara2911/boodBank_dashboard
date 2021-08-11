@@ -14,9 +14,8 @@ import { UserInfoComponent } from './component/user-info/user-info.component';
 const routes: Routes = [
 
   {path:'',component:SignInComponent},
-
-  {path:'Home',component:HomeComponent},
-  {path:'Users',component:UsersComponent},//canActivate:[AuthoGuard]
+  {path:'Home',component:HomeComponent,canActivate:[AuthoGuard]},
+  {path:'Users',component:UsersComponent,canActivate:[AuthoGuard]},
   {path:'Users/:type',component: UserDetailsComponent},
   {path:'Search/:type',component:SearchComponent},
    {path:'profile',component:ProfileComponent},

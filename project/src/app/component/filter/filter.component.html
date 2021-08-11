@@ -5,10 +5,12 @@
   <select #optionG   (change)="serve.SetOptionGovern(optionG.value)">
     <option *ngFor=" let g of governments">{{g}}</option>
   </select>
+  <span class="m-0 p-0 " [hidden]='serve.filterday'>
   <label>Day</label>
-  <select  #optionDay  >
+  <select  #optionDay (change)="serve.SetoptionDay(optionDay.value)">
     <option *ngFor=" let d of Days ">{{d}}</option>
   </select>
+</span>
 </div>
 <button  class=" m-0 p-0 ml-auto col-1 btnfilter  text-center" type="button" data-toggle="collapse" data-target="#filtercolaps"
 aria-controls="filtercolaps" aria-expanded="false" aria-label="Toggle navigation">

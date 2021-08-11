@@ -19,4 +19,11 @@
   .valid{
     border: 1px solid red;
   }
+  .btn-sub{
+    width: 90px;
+    display:inline-block;
+    padding:7px;
+    border-radius: 15px;
+    font-size: 23px;
+  }
   

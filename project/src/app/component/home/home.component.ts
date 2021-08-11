@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   arr:any=[]
   ngOnInit(): void {
   this.blood.forEach((p)=>{
-    this.serve.getUsersSametype().equalTo(p).once('value',(snap)=>{
+    this.serve.getUsersSametype().equalTo(p).on('value',(snap)=>{
       this.count=0;
       snap.forEach((childsnap)=>{
         this.count+=1

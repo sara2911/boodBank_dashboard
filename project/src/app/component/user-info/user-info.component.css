@@ -1,6 +1,6 @@
 ._Card{
     border-radius:20px;
-    box-shadow: 10px 5px 5px gray;
+    box-shadow: 5px 5px 5px rgb(194, 194, 194);
     position:absolute;
 border: 1px solid gray;
 background-color: white;
@@ -17,8 +17,12 @@ background-color: white;
 } 
 ._card_post{
     border-radius:20px;
-    box-shadow: 10px 5px 5px gray;
+    box-shadow: 5px 5px 5px rgb(194, 194, 194);
+
+    /* box-shadow: 10px 7px 5px rgb(194, 194, 194); */
 border: 1px solid gray;
 background-color: white;
+/* background-color: rgb(255, 155, 255); */
+
 
 }

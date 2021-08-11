@@ -2,30 +2,35 @@
 <div class="container-fluid contain  m-0 row p-0">
   <div class="container-fluid _contain  m-0 row p-0"></div>
   <app-nav-aside class="col-2 p-0 m-0"></app-nav-aside>
-    <div class="col-9 mx-auto p-3 row"> 
-      <div class=" ml-auto w-50 p-4  profile  mt-3"> 
-        <div class="col-12 p-0 m-0 text-center  ">
+    <div class="col-md-8  col-10 mx-auto p-0 row"> 
+      <div class=" mx-md-auto  ml-0  w-50    p-4  profile mt-5">
+        <div class="row p-0 m-0 text-center col-12 divimg">
           <img src="../../../assets/images/noavatar1.png" class="mx-auto">
-        </div> 
-        <h4 class="text-center col-12 my-4">My profile</h4>
-      
-            <div class="row col-12 p-0 m-0" *ngIf="user">
+          <!-- <h4 class="text-center col-12 m-0 mb-2">My profile</h4> -->
+        </div>
+                  <h4 class="text-center col-12  mb-3">My profile</h4>
+  
+            <div class="row col-12 p-0 m-0" *ngIf="user" >
 
-              <div class="row col-12   p-0 m-0 my-2">
-                <h6> Hello 
-                <input value="{{user.displayName}}"/> 
-              </h6>
+              <div class="row col-12   p-0 m-0  _div mt-3">
+                <label> Name</label> 
+                <input [(value)]="user.displayName" #name  
+                > 
+              
               </div>
-              <div class=" col-12 p-0 m-0  my-2">
-                  <h6>Email: <input value="{{user.email}}" #emailAutho></h6>
-                  <!-- <p>Email Verified: <strong>{{user.emailVerified}}</strong></p> -->
+              <div class=" col-12 p-0 m-0  _div mt-3">
+                <label>Email:</label>  
+                <input [(value)]="user.email" #emailAutho
+                 >
                 </div>
-                <div class="col-12  my-2 mt-4">
-                <button (click)="update('')">update</button>
-                <button routerLink="/SignUp"> create Acount</button>
-                <button>delete Acount</button>
-               </div>
-             
+                <div class="col-12   p-0 m-0 _div mt-3">
+                <button class="btnupdate"
+                (click)="update(name.value,emailAutho.value)">update</button>
+                <!-- <button routerLink="/SignUp"> create Acount</button> -->
+                <button class="btndelete"
+                (click)="deleteAcount(user.uid)">delete Acount</button>
+                </div> 
+              
               </div>
               </div>
             </div> 
