@@ -19,7 +19,7 @@
        </div>
     
         <div class="m-0 p-0 col-1 arr">
-          <button class="my-5 mx-auto"  (click)="pre()" [disabled]="btnPre"><i class="fas fa-chevron-left "></i></button>
+          <button class="my-5 mx-auto"  (click)="pre()" [disabled]="btnPre"  [ngClass]="{'_disable':btnPre}"><i class="fas fa-chevron-left "></i></button>
       
         </div>
 <div class="bgtable col-10 m-0 p-0 ">
@@ -45,7 +45,7 @@
         <td>{{u.firstName}}</td>
         <td>{{u.email}}</td>
         <td>{{u.blood_type}}</td>
-        <td>{{u.phone}}</td>
+        <td>{{'0'+u.phone}}</td>
         <td>{{u.government}}</td>
         <td>
         <button class="btn _btn " (click)="userinfo(u.email)">info</button>
@@ -58,7 +58,7 @@
     </table>
 </div>
 <div class="m-0 p-0 col-1  arr">
-  <button class="my-auto mx-auto" (click)="next()" [disabled]="btnNext">
+  <button class="my-auto mx-auto" (click)="next()" [disabled]="btnNext" [ngClass]="{'_disable':btnNext}">
     <i class="fas fa-angle-right"></i>  </button>
 
 </div>

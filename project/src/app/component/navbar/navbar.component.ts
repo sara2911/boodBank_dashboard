@@ -16,6 +16,7 @@ countrepo:any=0;
     public  _authService: AuthService) { }
 
   ngOnInit(): void {
+    // this.serve.btn_deletrepo=true
    var data=JSON.parse(localStorage.getItem('user')||'').email
     console.log(data)
     this.admin=data[0]
@@ -27,7 +28,7 @@ countrepo:any=0;
         this.countrepo+=1;
         console.log(child.val())
         this.repots.push(child.val())
-        this.serve.num_repo=this.countrepo;
+        this.serve.num_repo=this.repots.length;
 
       });
       // this.serve.num_repo=this.countrepo;
@@ -59,7 +60,7 @@ this.dark=!this.serve.mood;
 // }
 
 submitval(v:any){
-  this.serve.btn_deletrepo=false
+  this.serve.btn_deletrepo=false;
   // this.serve.num_repo-=1;
   console.log(v);
 if(this._Router.url!==`/UserInfo/${v}`

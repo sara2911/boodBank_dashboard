@@ -133,6 +133,8 @@ getmore(){
   }
  
   userinfo(e:any){
+        this.ourService.btn_deletrepo=true;
+
 
   this.ourService.getAllUser().orderByChild('email').equalTo(e)
   .once('value',(snap)=>{

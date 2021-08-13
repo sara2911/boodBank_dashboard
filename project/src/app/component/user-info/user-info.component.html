@@ -39,13 +39,17 @@
         </div>
       </div>
     </div>
-    <button class="btn btn-info" 
+   
+    <button class="btn btn-info my-5" 
     [hidden]="ourserve.btn_deletrepo"
-    (click)="deleterepo()"
-    >delete repo</button>
+      (click)="deleterepo()"
+      >delete report</button>
   </div>
-  <div class="col-3">
-    <div class="_Card p-3 mt-5" *ngIf="userinfo">
+  <div class="col-3 d-flex ">
+    <!-- <div class="div_dele ">
+    
+    </div> -->
+    <div class="_Card p-3 mt-5 " *ngIf="userinfo">
                   <img src={{userinfo.user_imgURL}} class="imgcard mx-auto">
       <!-- <img src={{userinfo.user_imgURL}}> -->
       
@@ -59,23 +63,10 @@
 
 
   </div>
- 
+  
 </div>
+<!-- <div class="m-0 p-0 "> -->
+ 
   </div>
   <!-- </div> -->
-  <!-- </div>
-   age: 
-  26
-  blood_type: 
-  "B+"
-  email: 
-  "mik@gmail.com"
-  firstName: 
-  "mike"
-  phone: 
-  12345678912
-  secondName: 
-  "nnn"
-  user_imgURL: 
-  "https://firebasestorage.googleapis.com/v0/b/blo..." -->
-  
+ 

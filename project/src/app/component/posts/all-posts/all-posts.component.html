@@ -45,11 +45,11 @@
         </div>
       </div>
     </div>
-    <div class="row m-0 p-0 col-12 pt-4 px-5">
+    <div class="row m-0 p-0 col-12 pt-4 px-5 " >
       <button class="btn_pre ml-auto" (click)="btn_prev()" [disabled]="disable_pre">
         <i class="fas fa-angle-left"></i>
       </button>
-      <ul class="pagination  ulpagination mx-1">
+      <ul class="pagination  ulpagination mx-1" [hidden]="btn_hidden">
         <button (click)="select_Page(1)" [ngClass]="{'btnblue':btn1.value==this.active_page}" value="1" #btn1>1</button>
 
         <button (click)="select_Page(2)" value="2" #btn2 [ngClass]="{'btnblue':btn2.value==this.active_page}">
@@ -59,15 +59,21 @@
           3</button>
         <button value="4" (click)="select_Page(4)" #btn4 [ngClass]="{'btnblue':btn4.value==this.active_page}">4</button>
         <button value="5" (click)="select_Page(5)" #btn5 [ngClass]="{'btnblue':btn5.value==this.active_page}">5</button>
-       
+        <button value="6" (click)="select_Page(6)" #btn6 [ngClass]="{'btnblue':btn6.value==this.active_page}">6</button>
+
       </ul>
-      <button class="btn_next mr-auto" (click)="next_btn()" [disabled]="disable_next">
+      <button class="btn_next mr-auto" (click)="next_btn()" [disabled]="disable_next" >
         <i class="fas fa-angle-right"></i>
       </button>
     </div>
-    <div *ngFor="let b of btn_count; index as i">
-      <button class="btn btn-info" >{{i+1}}</button>
-    </div>
+    <!-- *ngFor="let b of btn_count; index as i" -->
+    <!-- <div *ngIf="this.lengthbtn">
+      <button value="5" (click)="select_Page(5)" #btn5 [ngClass]="{'btnblue':btn5.value==this.active_page}">5</button>
+      <button>{{this.btn_count[this.lengthbtn-2]}} pre</button>
+      <button>{{this.btn_count[this.lengthbtn-1]}} pre</button>
+      <span>.......</span>
+      <button class="btn btn-info" >{{this.lengthbtn}} btn</button>
+    </div> -->
   </div>
 
 

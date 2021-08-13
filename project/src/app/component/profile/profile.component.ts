@@ -59,6 +59,11 @@ update(updateName:any,updateEmail:any ){
             console.log(error)
             // ...
           });
+          this.serve.getAllAdmin().orderByKey().equalTo(this.id).on('value',(snap)=>{
+            snap.forEach((child)=>{
+          this.user=child.val();
+            })
+          })
 ////////////////
 
   //  _user?.updateProfile({
@@ -86,7 +91,7 @@ update(updateName:any,updateEmail:any ){
                 this._autho.afAuth.authState.subscribe((user)=>{
                   console.log(user)
        if (user){
-       this.user=user;
+      //  this.user=user;
        console.log(this.user)
     localStorage.setItem('user',JSON.stringify(this.user));
     // JSON.parse(localStorage.getItem('user'));

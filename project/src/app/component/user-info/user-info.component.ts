@@ -1,4 +1,4 @@
-import { snapshotChanges } from '@angular/fire/database';
+// import { snapshotChanges } from '@angular/fire/database';
 import { AuthService } from './../services/authoServices/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -23,6 +23,8 @@ export class UserInfoComponent implements OnInit {
   
     }
   ngOnInit(): void {
+    // this.ourserve.btn_deletrepo=true
+
     this.userId=this.ourActivated.snapshot.params.type;
 
     this.ourserve.getUserById(this.userId).on('value',(snapshotChanges)=>{
@@ -45,10 +47,11 @@ snapshotChanges.forEach((childsnap:any)=>{
 })
   }
  deleteuser(){
+   this.ourserve.addInblock().push(this.userinfo.email)
   this.ourserve.deleteUser(this.userId);
   this.userinfo='';
   
-  this._utho.afAuth
+ 
 
  } 
  deletpost(id:any,index:any){

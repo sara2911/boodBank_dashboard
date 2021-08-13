@@ -3,16 +3,14 @@ import { User } from "../../../shared/services/user"
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import { AngularFireDatabase } from '@angular/fire/database';// AngularFireList
- 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-  auth // this.SetUserData(result.user);
-    () {
-    throw new Error('Method not implemented.');
-  }
+  // auth // this.SetUserData(result.user);
+  
+  // admin:any=
   userData:any; // Save logged in user data
 databaseAutho:any;
   constructor(

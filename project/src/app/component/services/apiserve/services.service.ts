@@ -78,5 +78,8 @@ getpostInGovern(g:any){
 deleteUser(id:any){
    return this.db.database.ref('/Users').child(id).remove()
 }
+addInblock(){
+  return this.db.database.ref('blocked')
+}
 }
 // government

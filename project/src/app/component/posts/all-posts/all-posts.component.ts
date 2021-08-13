@@ -37,6 +37,7 @@ page:any
   'Asyut',
   'Aswan'
 ];
+lengthbtn:any;
 Days:any[]=[];
 day(){
   for(let i=1;i<31;i++){
@@ -45,14 +46,15 @@ this.Days.push(i);
 }
 
 _keydelete:any;
-num:any;
-btn_count:any[]=[1];
+num:any=0;
+btn_count:number[]=[1];
+btn_hidden=false;
   constructor(public serve:ServicesService ) { }
 
   ngOnInit(): void {
     this.serve.filterday=false
     this.day()
-this.serve.getAllPosts().orderByKey().limitToFirst(2)
+this.serve.getAllPosts().orderByKey().limitToFirst(5)
 .on('value', (snapshot) => {
   snapshot.forEach((childSnapshot) => {
     var childData=childSnapshot.val();
@@ -66,7 +68,6 @@ console.log(this.posts);
   //  console.log(this.lastkey) 
   }
 
-  
   select_Page(_page:any){
     this.page=_page-1
     this.active_page=_page;
@@ -78,7 +79,7 @@ console.log(this.posts);
       console.log("create new");
       console.log(this.arrPage[this.page]);
     this.serve.getAllPosts().orderByKey()
-    .startAfter(this.lastkey).limitToFirst(2)
+    .startAfter(this.lastkey).limitToFirst(5)
     .on('value', (snapshot) => { 
         //reset values
         // this.lastkey='' 
@@ -90,13 +91,15 @@ console.log(this.posts);
     this.postsInpage.push(childData)
     // console.log(this.lastkey, "after")
 })
-console.log(this.postsInpage.length,"length")
+// console.log(this.postsInpage.length,"length")
 if(this.postsInpage.length!==0){
 
-  console.log(this.postsInpage.length,"add")
+  // console.log(this.postsInpage.length,"add")
   this.num+=1;
 this.btn_count.push(this.num);
+this.lengthbtn=this.btn_count.length;
 this.pushposts(this.postsInpage,this.page);
+console.log(this.btn_count)
 }
 else if(this.postsInpage.length==0){
   console.log(this.postsInpage.length,"nodata");
@@ -125,21 +128,22 @@ this.posts=[];
   }
 
   next_btn(){
-    // console.log("next",this.active_page)
+    console.log("next befor",this.active_page)
     this.active_page+=1;
-    // if(this.active_page>=5){
-    //   this.active_page=5
-    //   // this.disable_next=true;
-    //   this.disable_pre=false;
+    if(this.active_page>=6){
+      this.active_page=6
+      // this.disable_next=true;
+      this.disable_pre=false;
 
-    // }
-    console.log("next",this.active_page)
-
+    }
+    console.log("next after",this.active_page)
     this.select_Page(this.active_page)
 
   }
 
   btn_prev(){
+    this.btn_hidden=false
+    
     this.active_page-=1;
  if(this.active_page<=1){
     this.disable_next=false;
@@ -158,9 +162,9 @@ checkbtn(){
     this.disable_pre=true;
     this.active_page=1;
  }
-  if(this.active_page>=5){
-  // this.active_page=5
-  // this.disable_next=true;
+  if(this.active_page>=6){
+  this.active_page=6
+  this.disable_next=true;
   this.disable_pre=false;
 
 }
@@ -192,6 +196,8 @@ console.log(this.posts)
 
 
 filtersearch(){
+  this.btn_hidden=true;
+  
   // this.active_page=0;
     let arr:any[]=[];
   let g=this.serve.getOptionGovern();

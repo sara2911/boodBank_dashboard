@@ -26,4 +26,9 @@ export class SignInComponent implements OnInit {
   get EmailValid(){
     return this.ourValidation.controls.email.valid;
   }
+
+submitlogin(e:any,p:any){
+  // if(passValid())
+  this.authService.SignIn(e,p);
+}
 }

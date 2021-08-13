@@ -17,10 +17,10 @@
         <span id="span_bell">{{serve.num_repo}}</span>
         </button>
         <div class="dropdown-menu ">
-          <a class="dropdown-item"*ngFor="let r of repots"
+          <a class="dropdown-item"*ngFor="let r of repots ;index as i"
         (click)="submitval(r.userID)"
           
-          >{{r.details}}
+          >{{i+1}}: {{r.details}}
 
           <div class="dropdown-divider"></div>
         </a>

@@ -62,3 +62,7 @@ height: min-content;
   background-color: rgb(138, 138, 246);
   color: white;
 }
+._disable{
+  background-color: gray;
+  color: white;
+}
